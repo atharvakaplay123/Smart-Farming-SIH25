@@ -1,12 +1,358 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sih25</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriSense — Smart Farming Suite</title>
+  <meta name="description" content="Smart farming dashboard: crop recommendations, sensor data, chatbot, provisioning, weather, irrigation, account, crop manager." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+  <!-- hidden inputs for theme & mock mobile menu (no JS) -->
+  <input id="theme" type="checkbox" class="visually-hidden" aria-hidden="true" />
+
+  <div class="app">
+    <header role="banner">
+      <div class="container nav">
+        <a class="brand" href="#">
+          <span class="logo" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L4 6v6c0 5 8 10 8 10s8-5 8-10V6l-8-4Z" fill="white" opacity=".9"/><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z" fill="#000" opacity=".2"/></svg>
+          </span>
+          <span>AgriSense</span>
+        </a>
+        <span class="pill" title="Environment">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm1 2.06A7.003 7.003 0 0 1 19.94 11H13V5.06ZM5.06 13A7.003 7.003 0 0 1 11 5.06V13H5.06ZM13 18.94V13h6.94A7.003 7.003 0 0 1 13 18.94ZM11 18.94A7.003 7.003 0 0 1 4.06 13H11v5.94Z"/></svg>
+          Sandbox UI
+        </span>
+        <nav class="navlinks" aria-label="Primary">
+          <a href="#overview" aria-current="page">Overview</a>
+          <a href="#recommendations">Recommendations</a>
+          <a href="#sensors">Sensors</a>
+          <a href="#provisioning">Provisioning</a>
+          <a href="#weather">Weather</a>
+          <a href="#irrigation">Irrigation</a>
+          <a href="#crop-manager">Crop Manager</a>
+          <a href="#account">Account</a>
+        </nav>
+        <label class="pill" for="theme" title="Toggle light/dark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1Zm-9-5a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm16 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1Zm-9.657-6.657a1 1 0 0 1 1.414 0l1.415 1.414a1 1 0 1 1-1.415 1.415L9.343 6.757a1 1 0 0 1 0-1.414Zm8.486 8.486a1 1 0 0 1 1.414 0l1.415 1.414a1 1 0 1 1-1.415 1.415l-1.414-1.415a1 1 0 0 1 0-1.414Zm0-8.486 1.414-1.414a1 1 0 1 1 1.415 1.414L18.758 6.757a1 1 0 1 1-1.415-1.414ZM6.757 18.758l-1.414 1.414A1 1 0 0 1 3.93 18.757l1.415-1.414a1 1 0 1 1 1.414 1.415Z"/></svg>
+          Theme
+        </label>
+      </div>
+    </header>
+
+    <div class="container grid">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Secondary Navigation">
+        <div class="sidecard">
+          <h4>Quick Actions</h4>
+          <div class="menu">
+            <a href="#recommendations">➕ New Recommendation</a>
+            <a href="#provisioning">🛰️ Add Sensor/Actuator</a>
+            <a href="#irrigation">💧 Start Irrigation</a>
+            <a href="#crop-manager">🌱 Add Crop</a>
+          </div>
+        </div>
+        <div class="sidecard" style="margin-top:.8rem">
+          <h4>Farm Filter</h4>
+          <div class="controls">
+            <div style="flex:1">
+              <label for="farm">Farm</label>
+              <select id="farm"><option>All Farms</option><option>North Field</option><option>South Orchard</option><option>Greenhouse A</option></select>
+            </div>
+            <div style="flex:1">
+              <label for="season">Season</label>
+              <select id="season"><option>2025 — Kharif</option><option>2024 — Rabi</option></select>
+            </div>
+            <button class="btn" style="width:100%">Apply</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main>
+        <!-- Hero / Overview -->
+        <section id="overview" class="card">
+          <div class="head">
+            <div>
+              <h3>Overview</h3>
+              <p class="pill">Real‑time status across farms</p>
+            </div>
+            <div class="controls">
+              <button class="btn ghost">Export Report</button>
+              <button class="btn">Sync Data</button>
+            </div>
+          </div>
+          <div class="body">
+            <div class="hero">
+              <div>
+                <h1>Welcome back! Your fields look <span style="color:var(--good)">healthy</span> today.</h1>
+                <p>Track crop health, automate irrigation, view region‑wise weather, and manage inventory — all in one place.</p>
+              </div>
+              <div class="pill">Uptime: <strong>99.9%</strong></div>
+            </div>
+            <div class="kpis" role="list">
+              <div class="kpi" role="listitem">
+                <div class="label">Avg. Crop Health</div>
+                <div class="value">92%</div>
+                <div class="bar" aria-hidden="true"><i style="width:92%"></i></div>
+                <div class="trend" style="color:var(--good)">▲ +3% this week</div>
+              </div>
+              <div class="kpi" role="listitem">
+                <div class="label">Soil Moisture</div>
+                <div class="value">31%</div>
+                <div class="bar" aria-hidden="true"><i style="width:31%"></i></div>
+                <div class="trend" style="color:var(--warn)">● Needs attention</div>
+              </div>
+              <div class="kpi" role="listitem">
+                <div class="label">Irrigation Today</div>
+                <div class="value">18,400 L</div>
+                <div class="trend">4 schedules</div>
+              </div>
+              <div class="kpi" role="listitem">
+                <div class="label">Devices Online</div>
+                <div class="value">42/45</div>
+                <div class="trend" style="color:var(--good)">Stable</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Crop Recommendations -->
+        <section id="recommendations" class="card">
+          <div class="head">
+            <h3>Crop Recommendations</h3>
+            <div class="controls">
+              <button class="btn ghost">Save</button>
+              <button class="btn">Run</button>
+            </div>
+          </div>
+          <div class="body">
+            <div class="controls" style="margin-bottom: .8rem">
+              <div style="flex:1; min-width:200px">
+                <label for="soil">Soil Type</label>
+                <select id="soil"><option>Alluvial</option><option>Black</option><option>Red</option><option>Laterite</option></select>
+              </div>
+              <div style="flex:1; min-width:200px">
+                <label for="ph">Soil pH</label>
+                <input id="ph" type="number" step="0.1" placeholder="6.5" />
+              </div>
+              <div style="flex:1; min-width:200px">
+                <label for="rain">Rainfall (mm)</label>
+                <input id="rain" type="number" placeholder="120" />
+              </div>
+              <div style="flex:1; min-width:200px">
+                <label for="season2">Season</label>
+                <select id="season2"><option>Kharif</option><option>Rabi</option><option>Zaid</option></select>
+              </div>
+            </div>
+
+            <table aria-label="Recommended crops">
+              <thead><tr><th>Crop</th><th>Suitability</th><th>Expected Yield</th><th>Inputs</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Rice</td><td><span class="status good">High</span></td><td>5.2 t/ha</td><td>High water</td><td>Consider short‑duration variety</td></tr>
+                <tr><td>Maize</td><td><span class="status good">High</span></td><td>4.1 t/ha</td><td>Moderate water</td><td>Drought tolerant hybrid</td></tr>
+                <tr><td>Pulses</td><td><span class="status warn">Medium</span></td><td>1.9 t/ha</td><td>Low water</td><td>Great for crop rotation</td></tr>
+                <tr><td>Cotton</td><td><span class="status bad">Low</span></td><td>—</td><td>High water</td><td>Soil pH not ideal</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Sensor Data (Crop Health) -->
+        <section id="sensors" class="card">
+          <div class="head">
+            <h3>Sensor Data — Crop Health</h3>
+            <div class="controls">
+              
+              <button class="btn">Refresh</button>
+            </div>
+          </div>
+          <div class="body">
+            <table aria-label="Sensor table">
+              <thead><tr><th>Device</th><th>Location</th><th>Moisture</th><th>Temp</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Drone‑01</td><td>North Field</td><td>0.82</td><td>28%</td><td>31°C</td><td><span class="status good">Healthy</span></td></tr>
+                <tr><td>Soil‑07</td><td>Greenhouse A</td><td>0.71</td><td>42%</td><td>26°C</td><td><span class="status good">Optimal</span></td></tr>
+                <tr><td>Leaf‑Cam‑2</td><td>South Orchard</td><td>0.59</td><td>22%</td><td>34°C</td><td><span class="status warn">Stressed</span></td></tr>
+                <tr><td>Soil‑03</td><td>North Field</td><td>0.35</td><td>16%</td><td>36°C</td><td><span class="status bad">Critical</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Provisioning -->
+        <section id="provisioning" class="card">
+          <div class="head">
+            <h3>Provisioning — Devices & Inventory</h3>
+            <div class="controls">
+              <button class="btn ghost">Import</button>
+              <button class="btn">Add Device</button>
+            </div>
+          </div>
+          <div class="body">
+            <table aria-label="Provisioning table">
+              <thead><tr><th>ID</th><th>Type</th><th>Farm</th><th>Conn.</th><th>Battery</th><th>Active</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>GW‑11</td><td>Gateway</td><td>North Field</td><td>LoRa</td><td>88%</td><td><span class="switch"><input type="checkbox" checked aria-label="Toggle device"/></span></td><td><button class="btn ghost">Details</button></td></tr>
+                <tr><td>S‑07</td><td>Soil Sensor</td><td>Greenhouse A</td><td>Zigbee</td><td>64%</td><td><span class="switch"><input type="checkbox" checked/></span></td><td><button class="btn ghost">Details</button></td></tr>
+                <tr><td>P‑02</td><td>Water Pump</td><td>South Orchard</td><td>Wi‑Fi</td><td>—</td><td><span class="switch"><input type="checkbox"/></span></td><td><button class="btn ghost">Details</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Weather (Region-wise) -->
+        <section id="weather" class="card">
+          <div class="head">
+            <h3>Weather — Region-wise</h3>
+            <div class="controls">
+              <button class="btn ghost">Forecast</button>
+              <button class="btn">Update</button>
+            </div>
+          </div>
+          <div class="body">
+            <div class="controls" style="margin-bottom:.8rem">
+              <div style="flex:1; min-width:200px">
+                <label for="region">Region</label>
+                <select id="region"><option>Punjab</option><option>Maharashtra</option><option>Tamil Nadu</option><option>Telangana</option></select>
+              </div>
+              <div style="flex:1; min-width:200px">
+                <label for="district">District</label>
+                <input id="district" type="text" placeholder="e.g., Sangrur" />
+              </div>
+              <div style="flex:1; min-width:200px">
+                <label for="days">Days</label>
+                <select id="days"><option>1 day</option><option>3 days</option><option>7 days</option></select>
+              </div>
+            </div>
+            <table aria-label="Weather table">
+              <thead><tr><th>Day</th><th>Condition</th><th>High / Low</th><th>Rain (mm)</th><th>Wind</th></tr></thead>
+              <tbody>
+                <tr><td>Today</td><td>Partly Cloudy</td><td>34°C / 27°C</td><td>2.4</td><td>12 km/h</td></tr>
+                <tr><td>Tomorrow</td><td>Light Showers</td><td>32°C / 25°C</td><td>8.0</td><td>14 km/h</td></tr>
+                <tr><td>+2 days</td><td>Sunny</td><td>35°C / 26°C</td><td>0.0</td><td>10 km/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Irrigation -->
+        <section id="irrigation" class="card">
+          <div class="head">
+            <h3>Irrigation Scheduler</h3>
+            <div class="controls">
+              <button class="btn ghost">Templates</button>
+              <button class="btn">Create Schedule</button>
+            </div>
+          </div>
+          <div class="body">
+            <div class="controls" style="margin-bottom:.8rem">
+              <div style="flex:1; min-width:240px">
+                <label for="plot">Plot</label>
+                <select id="plot"><option>North Field — Section A</option><option>South Orchard — Drip Row 3</option></select>
+              </div>
+              <div style="flex:1; min-width:160px">
+                <label for="start">Start Time</label>
+                <input id="start" type="text" placeholder="06:00" />
+              </div>
+              <div style="flex:1; min-width:160px">
+                <label for="duration">Duration (min)</label>
+                <input id="duration" type="number" placeholder="30" />
+              </div>
+              <div style="flex:1; min-width:160px">
+                <label for="volume">Volume (L)</label>
+                <input id="volume" type="number" placeholder="4500" />
+              </div>
+              <button class="btn">Schedule</button>
+            </div>
+            <table aria-label="Irrigation table">
+              <thead><tr><th>Time</th><th>Plot</th><th>Method</th><th>Volume</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>06:00</td><td>North Field A</td><td>Sprinkler</td><td>5,000 L</td><td><span class="status good">Completed</span></td><td><button class="btn ghost">View</button></td></tr>
+                <tr><td>15:30</td><td>South Orchard R3</td><td>Drip</td><td>3,400 L</td><td><span class="status warn">Queued</span></td><td><button class="btn ghost">Cancel</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Crop Manager -->
+        <section id="crop-manager" class="card">
+          <div class="head">
+            <h3>Crop Manager</h3>
+            <div class="controls">
+              
+              <button class="btn">Add Crop</button>
+            </div>
+          </div>
+          <div class="body">
+            <table aria-label="Crop manager table">
+              <thead><tr><th>Crop</th><th>Sowing</th><th>Harvest</th><th>Health</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Wheat</td><td>2025‑11‑12</td><td>2026‑03‑20</td><td><span class="status good">Good</span></td><td>Fertilizer due next week</td></tr>
+                <tr><td>Tomato</td><td>2025‑07‑01</td><td>2025‑10‑15</td><td><span class="status warn">Monitor</span></td><td>Whitefly risk</td></tr>
+                <tr><td>Mango</td><td>—</td><td>—</td><td><span class="status good">Healthy</span></td><td>Pruning scheduled</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Account -->
+        <section id="account" class="card">
+          <div class="head">
+            <h3>Account & Preferences</h3>
+            <div class="controls">
+              <button class="btn bad">Delete</button>
+              <button class="btn">Save</button>
+            </div>
+          </div>
+          <div class="body">
+            <div class="controls">
+              <div style="flex:1; min-width:220px">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Farmer Name" />
+              </div>
+              <div style="flex:1; min-width:220px">
+                <label for="email">Email</label>
+                <input id="email" type="text" placeholder="farmer@example.com" />
+              </div>
+              <div style="flex:1; min-width:220px">
+                <label for="phone">Phone</label>
+                <input id="phone" type="text" placeholder="+91‑12345‑67890" />
+              </div>
+              <div style="flex:1; min-width:220px">
+                <label for="lang">Language</label>
+                <select id="lang"><option>English</option><option>हिन्दी</option><option>తెలుగు</option><option>தமிழ்</option></select>
+              </div>
+            </div>
+            <div class="controls" style="margin-top:.8rem">
+              <div style="flex:1; min-width:220px">
+                <label for="units">Units</label>
+                <select id="units"><option>Metric</option><option>Imperial</option></select>
+              </div>
+              <div style="flex:1; min-width:220px">
+                <label>Two‑factor Auth</label>
+                <span class="switch"><input type="checkbox" checked aria-label="Toggle 2FA"></span>
+              </div>
+              <div style="flex:2">
+                <label for="address">Address</label>
+                <input id="address" type="text" placeholder="Farm address" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="card" style="padding:1rem; text-align:center">
+          <small style="color:var(--muted)">© 2025 AgriSense. UI template for demonstration. Replace static data with API integrations.</small>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  
 </body>
 </html>
+
