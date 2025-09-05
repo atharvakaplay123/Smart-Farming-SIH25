@@ -1,0 +1,56 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar */
+  #navbar {
+    background-color: #2f4f2f;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+   
+  }
+  
+  .logo-img {
+    height: 50px;   /* adjust as needed */
+    width: auto;
+  }
+  
+  #navbar-right button {
+    background: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #navbar-right button:hover {
+    background: #e6b800;
+  }
+  
+  /* Main Image */
+  
+  
+ 
+  
+  
+  
+  /* Hero Section Layout */
+
+  
+  
+  
+  
+  

@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
+    <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
+    <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
+    <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
+    <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
+<script src="assets/js/script.js"></script>
+
 </head>
 <body>
     <div id="navbar">
@@ -235,35 +241,7 @@
     </div>
   </div>
   
-  <script>
-    const chatIcon = document.getElementById("chat-icon");
-    const chatBox = document.getElementById("chat-box");
-    const closeBtn = document.getElementById("close-btn");
-    const sendBtn = document.getElementById("send-btn");
-    const userInput = document.getElementById("user-input");
-    const chatBody = document.querySelector(".chat-body");
   
-    // Open/close with icon
-    chatIcon.addEventListener("click", () => {
-      chatBox.classList.toggle("hidden");
-    });
-  
-    // Close when clicking ❌
-    closeBtn.addEventListener("click", () => {
-      chatBox.classList.add("hidden");
-    });
-  
-    // Send messages
-    sendBtn.addEventListener("click", () => {
-      const msg = userInput.value.trim();
-      if (msg) {
-        chatBody.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-        chatBody.innerHTML += `<p><strong>Bot:</strong> I received "${msg}"</p>`;
-        userInput.value = "";
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-    });
-  </script>
   
       
 </body>
