@@ -1,177 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
-    <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
-    <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
-    <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
-    <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
-
-
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
+  <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
+  <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
+  <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
+  <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
 </head>
 
 <body>
-    <div id="navbar">
-        <!-- Logo on the left -->
-        <div id="navbar-left">
-          <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
-        </div>
-      
-        <!-- Buttons on the right -->
-        <div id="navbar-right">
+  <div id="navbar">
+    <!-- Logo on the left -->
+    <div id="navbar-left">
+      <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
+    </div>
 
-          <button><i class="fa-solid fa-plus"></i></button>
-          
-          
-        </div>
+    <!-- Buttons on the right -->
+    <div id="navbar-right">
+      <button><i class="fa-solid fa-plus"></i></button>
+    </div>
+  </div>
+  <div id="main">
+    <a>sensor data</a>
+    <a>weather</a>
+    <a>recommendation</a>
+    <a>irrigation</a>
+    <a>crop manager</a>
+    <!-- <a>chat bot</a> -->
+  </div>
+
+  <div class="body">
+
+    <div class="hero">
+      <div>
+        <h1>Welcome back! Your fields look <span style="color:var(--good)">healthy</span> today.</h1>
+        <p>Track crop health, automate irrigation, view region-wise weather, and manage inventory — all in one place.
+        </p>
       </div>
-      <div id="main">
-        <a>sensor data</a>
-        <a>weather</a>
-        <a>recommendation</a>
-        <a>irrigation</a>
-        <a>crop manager</a>
-        <!-- <a>chat bot</a> -->
+    </div>
+    <div class="kpis" role="list">
+      <div class="kpi" role="listitem">
+        <div class="label">Avg. Crop Health</div>
+        <div class="value">92%</div>
+        <div class="bar" aria-hidden="true"><i style="width:92%"></i></div>
+        <div class="trend" style="color:var(--good)">▲ +3% this week</div>
       </div>
-      
-        <div class="body">
-            
-            <div class="hero">
-              <div>
-                <h1>Welcome back! Your fields look <span style="color:var(--good)">healthy</span> today.</h1>
-                <p>Track crop health, automate irrigation, view region‑wise weather, and manage inventory — all in one place.</p>
-              </div>
-              <div class="pill">Uptime: <strong>99.9%</strong></div>
-            </div>
-            <div class="kpis" role="list">
-              <div class="kpi" role="listitem">
-                <div class="label">Avg. Crop Health</div>
-                <div class="value">92%</div>
-                <div class="bar" aria-hidden="true"><i style="width:92%"></i></div>
-                <div class="trend" style="color:var(--good)">▲ +3% this week</div>
-              </div>
-              <div class="kpi" role="listitem">
-                <div class="label">Soil Moisture</div>
-                <div class="value">31%</div>
-                <div class="bar" aria-hidden="true"><i style="width:31%"></i></div>
-                <div class="trend" style="color:var(--warn)">● Needs attention</div>
-              </div>
-              <!-- <div class="kpi" role="listitem">
+      <div class="kpi" role="listitem">
+        <div class="label">Soil Moisture</div>
+        <div class="value">31%</div>
+        <div class="bar" aria-hidden="true"><i style="width:31%"></i></div>
+        <div class="trend" style="color:var(--warn)">● Needs attention</div>
+      </div>
+      <!-- <div class="kpi" role="listitem">
                 <div class="label">Irrigation Today</div>
                 <div class="value">18,400 L</div>
                 <div class="trend">4 schedules</div>
               </div> -->
-              <!-- <div class="kpi" role="listitem">
+      <!-- <div class="kpi" role="listitem">
                 <div class="label">Devices Online</div>
                 <div class="value">42/45</div>
                 <div class="trend" style="color:var(--good)">Stable</div>
               </div> -->
-            </div>
-          </div>
-        <!-- sensor -->
-          <section id="sensors" class="card">
-            <div class="head">
-              <h3>Sensor Data — Crop Health</h3>
-              <div class="controls">
-                
-                <button class="btn">Refresh</button>
-              </div>
-            </div>
-          <table aria-label="Sensor table">
-            <thead><tr><th>Device</th><th>Location</th><th>Moisture</th><th>Temp</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td>Drone‑01</td><td>North Field</td><td>28%</td><td>31°C</td><td><span class="status good">Healthy</span></td></tr>
-              <tr><td>Soil‑07</td><td>Greenhouse A</td><td>42%</td><td>26°C</td><td><span class="status good">Optimal</span></td></tr>
-              <tr><td>Leaf‑Cam‑2</td><td>South Orchard</td><td>22%</td><td>34°C</td><td><span class="status warn">Stressed</span></td></tr>
-              <tr><td>Soil‑03</td><td>North Field</td><td>16%</td><td>36°C</td><td><span class="status bad">Critical</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<!-- weather -->
-      <section id="weather" class="card">
-        <div class="head">
-          <h3>Weather — Region-wise</h3>
-          <div class="controls">
-            <button class="btn ghost">Forecast</button>
-            <button class="btn">Update</button>
-          </div>
-        </div>
-        <div class="body">
-          <div class="controls" style="margin-bottom:.8rem">
-            <div style="flex:1; min-width:200px">
-              <label for="region">Region</label>
-              <select id="region"><option>Punjab</option><option>Maharashtra</option><option>Tamil Nadu</option><option>Telangana</option></select>
-            </div>
-            <div style="flex:1; min-width:200px">
-              <label for="district">District</label>
-              <input id="district" type="text" placeholder="e.g., Sangrur" />
-            </div>
-            <div style="flex:1; min-width:200px">
-              <label for="days">Days</label>
-              <select id="days"><option>1 day</option><option>3 days</option><option>7 days</option></select>
-            </div>
-          </div>
-          <table aria-label="Weather table">
-            <thead><tr><th>Day</th><th>Condition</th><th>High / Low</th><th>Rain (mm)</th><th>Wind</th></tr></thead>
-            <tbody>
-              <tr><td>Today</td><td>Partly Cloudy</td><td>34°C / 27°C</td><td>2.4</td><td>12 km/h</td></tr>
-              <tr><td>Tomorrow</td><td>Light Showers</td><td>32°C / 25°C</td><td>8.0</td><td>14 km/h</td></tr>
-              <tr><td>+2 days</td><td>Sunny</td><td>35°C / 26°C</td><td>0.0</td><td>10 km/h</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-<!-- recommendation -->
-      <section id="recommendations" class="card">
-        <div class="head">
-          <h3>Crop Recommendations</h3>
-          <div class="controls">
-            <button class="btn ghost">Save</button>
-            <button class="btn">Run</button>
-          </div>
-        </div>
-        <div class="body">
-          <div class="controls" style="margin-bottom: .8rem">
-            <div style="flex:1; min-width:200px">
-              <label for="soil">Soil Type</label>
-              <select id="soil"><option>Alluvial</option><option>Black</option><option>Red</option><option>Laterite</option></select>
-            </div>
-            <div style="flex:1; min-width:200px">
-              <label for="ph">Soil pH</label>
-              <input id="ph" type="number" step="0.1" placeholder="6.5" />
-            </div>
-            <div style="flex:1; min-width:200px">
-              <label for="rain">Rainfall (mm)</label>
-              <input id="rain" type="number" placeholder="120" />
-            </div>
-            <div style="flex:1; min-width:200px">
-              <label for="season2">Season</label>
-              <select id="season2"><option>Kharif</option><option>Rabi</option><option>Zaid</option></select>
-            </div>
-          </div>
+    </div>
+  </div>
+  <!-- sensor -->
+  <section id="sensors" class="card">
+    <div class="head">
+      <h3>Sensor Data — Crop Health</h3>
+      <div class="controls">
 
-          <table aria-label="Recommended crops">
-            <thead><tr><th>Crop</th><th>Suitability</th><th>Expected Yield</th><th>Inputs</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr><td>Rice</td><td><span class="status good">High</span></td><td>5.2 t/ha</td><td>High water</td><td>Consider short‑duration variety</td></tr>
-              <tr><td>Maize</td><td><span class="status good">High</span></td><td>4.1 t/ha</td><td>Moderate water</td><td>Drought tolerant hybrid</td></tr>
-              <tr><td>Pulses</td><td><span class="status warn">Medium</span></td><td>1.9 t/ha</td><td>Low water</td><td>Great for crop rotation</td></tr>
-              <tr><td>Cotton</td><td><span class="status bad">Low</span></td><td>—</td><td>High water</td><td>Soil pH not ideal</td></tr>
-            </tbody>
-          </table>
+        <button class="btn">Refresh</button>
+      </div>
+    </div>
+    <table aria-label="Sensor table">
+      <thead>
+        <tr>
+          <th>Device</th>
+          <th>Location</th>
+          <th>Moisture</th>
+          <th>Temp</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Drone-01</td>
+          <td>North Field</td>
+          <td>28%</td>
+          <td>31°C</td>
+          <td><span class="status good">Healthy</span></td>
+        </tr>
+        <tr>
+          <td>Soil-07</td>
+          <td>Greenhouse A</td>
+          <td>42%</td>
+          <td>26°C</td>
+          <td><span class="status good">Optimal</span></td>
+        </tr>
+        <tr>
+          <td>Leaf-Cam-2</td>
+          <td>South Orchard</td>
+          <td>22%</td>
+          <td>34°C</td>
+          <td><span class="status warn">Stressed</span></td>
+        </tr>
+        <tr>
+          <td>Soil-03</td>
+          <td>North Field</td>
+          <td>16%</td>
+          <td>36°C</td>
+          <td><span class="status bad">Critical</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <!-- weather -->
+  <section id="weather" class="card">
+    <div class="head">
+      <h3>Weather — Region-wise</h3>
+      <div class="controls">
+        <button class="btn ghost">Forecast</button>
+        <button class="btn">Update</button>
+      </div>
+    </div>
+    <div class="body">
+      <div class="controls" style="margin-bottom:.8rem">
+        <div style="flex:1; min-width:200px">
+          <label for="region">Region</label>
+          <select id="region">
+            <option>Punjab</option>
+            <option>Maharashtra</option>
+            <option>Tamil Nadu</option>
+            <option>Telangana</option>
+          </select>
         </div>
-      </section>
-<!-- irrigation -->
-      <!-- <section id="irrigation" class="card">
+        <div style="flex:1; min-width:200px">
+          <label for="district">District</label>
+          <input id="district" type="text" placeholder="e.g., Sangrur" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="days">Days</label>
+          <select id="days">
+            <option>1 day</option>
+            <option>3 days</option>
+            <option>7 days</option>
+          </select>
+        </div>
+      </div>
+      <table aria-label="Weather table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Condition</th>
+            <th>High / Low</th>
+            <th>Rain (mm)</th>
+            <th>Wind</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Today</td>
+            <td>Partly Cloudy</td>
+            <td>34°C / 27°C</td>
+            <td>2.4</td>
+            <td>12 km/h</td>
+          </tr>
+          <tr>
+            <td>Tomorrow</td>
+            <td>Light Showers</td>
+            <td>32°C / 25°C</td>
+            <td>8.0</td>
+            <td>14 km/h</td>
+          </tr>
+          <tr>
+            <td>+2 days</td>
+            <td>Sunny</td>
+            <td>35°C / 26°C</td>
+            <td>0.0</td>
+            <td>10 km/h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!-- recommendation -->
+  <section id="recommendations" class="card">
+    <div class="head">
+      <h3>Crop Recommendations</h3>
+      <div class="controls">
+        <button class="btn ghost">Save</button>
+        <button class="btn">Run</button>
+      </div>
+    </div>
+    <div class="body">
+      <div class="controls" style="margin-bottom: .8rem">
+        <div style="flex:1; min-width:200px">
+          <label for="soil">Soil Type</label>
+          <select id="soil">
+            <option>Alluvial</option>
+            <option>Black</option>
+            <option>Red</option>
+            <option>Laterite</option>
+          </select>
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="ph">Soil pH</label>
+          <input id="ph" type="number" step="0.1" placeholder="6.5" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="rain">Rainfall (mm)</label>
+          <input id="rain" type="number" placeholder="120" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="season2">Season</label>
+          <select id="season2">
+            <option>Kharif</option>
+            <option>Rabi</option>
+            <option>Zaid</option>
+          </select>
+        </div>
+      </div>
+
+      <table aria-label="Recommended crops">
+        <thead>
+          <tr>
+            <th>Crop</th>
+            <th>Suitability</th>
+            <th>Expected Yield</th>
+            <th>Inputs</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rice</td>
+            <td><span class="status good">High</span></td>
+            <td>5.2 t/ha</td>
+            <td>High water</td>
+            <td>Consider short‑duration variety</td>
+          </tr>
+          <tr>
+            <td>Maize</td>
+            <td><span class="status good">High</span></td>
+            <td>4.1 t/ha</td>
+            <td>Moderate water</td>
+            <td>Drought tolerant hybrid</td>
+          </tr>
+          <tr>
+            <td>Pulses</td>
+            <td><span class="status warn">Medium</span></td>
+            <td>1.9 t/ha</td>
+            <td>Low water</td>
+            <td>Great for crop rotation</td>
+          </tr>
+          <tr>
+            <td>Cotton</td>
+            <td><span class="status bad">Low</span></td>
+            <td>—</td>
+            <td>High water</td>
+            <td>Soil pH not ideal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!-- irrigation -->
+  <!-- <section id="irrigation" class="card">
         <div class="head">
           <h3>Irrigation Scheduler</h3>
           <div class="controls">
@@ -208,9 +309,9 @@
           </table>
         </div>
       </section> -->
-      <!-- crop-manager -->
+  <!-- crop-manager -->
 
-      <!-- <section id="crop-manager" class="card">
+  <!-- <section id="crop-manager" class="card">
         <div class="head">
           <h3>Crop Manager</h3>
           <div class="controls">
@@ -230,30 +331,31 @@
         </div>
       </section> -->
 
-<!-- Chatbot Toggle Button -->
-<div id="chat-toggle">💬</div>
+  <!-- Chatbot Toggle Button -->
+  <div id="chat-toggle">💬</div>
 
-<!-- Chatbot Box -->
-<div id="chatbox">
-  <div class="chat-header">
-    <span>ChatBot</span>
-    <span id="chat-close">×</span>
+  <!-- Chatbot Box -->
+  <div id="chatbox">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span id="chat-close">×</span>
+    </div>
+
+    <div class="chat-body">
+      <div class="msg bot">Hello 👋 How can I help you?</div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
   </div>
 
-  <div class="chat-body">
-    <div class="msg bot">Hello 👋 How can I help you?</div>
-  </div>
-
-  <div class="chat-footer">
-    <input type="text" placeholder="Type a message...">
-    <button>Send</button>
-  </div>
-</div>
 
 
-  
-  
-  
-<script src="assets/js/script.js"></script>    
+
+
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>

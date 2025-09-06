@@ -1,3 +1,6 @@
+const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
+
 // Map <a> text → section id
 const sectionMap = {
   "sensor data": "sensors",
@@ -50,23 +53,41 @@ function addMessage(sender, text) {
 
 // Send button click
 chatSend.addEventListener("click", () => {
-  const text = chatInput.value.trim();
-  if (text !== "") {
-    addMessage("user", text); // user message
-    chatInput.value = "";
-
-    // Fake bot reply after delay
-    setTimeout(() => {
-      addMessage("bot", "🤖 I’m just a demo bot! You said: " + text);
-    }, 600);
-  }
+  sendMessage();
 });
 
 // Enter key support
 chatInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    chatSend.click();
+    sendMessage();
   }
 });
 
+async function sendMessage() {
+  const input = chatInput.value.trim();
+  if (!input) return;
+
+  // Display user message
+  addMessage("user", input); // user message
+  chatInput.value = "";
+
+  // input = contxt + input
+  // Send to Gemini
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [
+        { parts: [{ text: input }] }
+      ]
+    })
+  });
+  const data = await response.json();
+  const botReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Error: No response";
+
+  // Display bot reply
+  addMessage("bot", botReply)
+  // chatbox.innerHTML += `<div class="bot"><b>Bot:</b> ${botReply}</div>`;
+  // chatbox.scrollTop = chatbox.scrollHeight;
+}
 
