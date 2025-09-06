@@ -11,9 +11,13 @@
     <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
     <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
     <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
-<script src="assets/js/script.js"></script>
+
+
+
+
 
 </head>
+
 <body>
     <div id="navbar">
         <!-- Logo on the left -->
@@ -35,7 +39,7 @@
         <a>recommendation</a>
         <a>irrigation</a>
         <a>crop manager</a>
-        <a>chat bot</a>
+        <!-- <a>chat bot</a> -->
       </div>
       
         <div class="body">
@@ -60,16 +64,16 @@
                 <div class="bar" aria-hidden="true"><i style="width:31%"></i></div>
                 <div class="trend" style="color:var(--warn)">● Needs attention</div>
               </div>
-              <div class="kpi" role="listitem">
+              <!-- <div class="kpi" role="listitem">
                 <div class="label">Irrigation Today</div>
                 <div class="value">18,400 L</div>
                 <div class="trend">4 schedules</div>
-              </div>
-              <div class="kpi" role="listitem">
+              </div> -->
+              <!-- <div class="kpi" role="listitem">
                 <div class="label">Devices Online</div>
                 <div class="value">42/45</div>
                 <div class="trend" style="color:var(--good)">Stable</div>
-              </div>
+              </div> -->
             </div>
           </div>
         <!-- sensor -->
@@ -167,7 +171,7 @@
         </div>
       </section>
 <!-- irrigation -->
-      <section id="irrigation" class="card">
+      <!-- <section id="irrigation" class="card">
         <div class="head">
           <h3>Irrigation Scheduler</h3>
           <div class="controls">
@@ -203,10 +207,10 @@
             </tbody>
           </table>
         </div>
-      </section>
+      </section> -->
       <!-- crop-manager -->
 
-      <section id="crop-manager" class="card">
+      <!-- <section id="crop-manager" class="card">
         <div class="head">
           <h3>Crop Manager</h3>
           <div class="controls">
@@ -224,25 +228,32 @@
             </tbody>
           </table>
         </div>
-      </section>
+      </section> -->
 
-<!-- Chatbot Window -->
-<div id="chat-box" class="hidden">
-    <div class="chat-header">
-      <span>Chat Bot</span>
-      <button id="close-btn">✖</button>
-    </div>
-    <div class="chat-body">
-      <p><strong>Bot:</strong> Hi! How can I help you?</p>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="user-input" placeholder="Type a message...">
-      <button id="send-btn">Send</button>
-    </div>
+<!-- Chatbot Toggle Button -->
+<div id="chat-toggle">💬</div>
+
+<!-- Chatbot Box -->
+<div id="chatbox">
+  <div class="chat-header">
+    <span>ChatBot</span>
+    <span id="chat-close">×</span>
   </div>
+
+  <div class="chat-body">
+    <div class="msg bot">Hello 👋 How can I help you?</div>
+  </div>
+
+  <div class="chat-footer">
+    <input type="text" placeholder="Type a message...">
+    <button>Send</button>
+  </div>
+</div>
+
+
   
   
   
-      
+<script src="assets/js/script.js"></script>    
 </body>
 </html>

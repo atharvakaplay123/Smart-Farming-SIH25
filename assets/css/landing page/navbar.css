@@ -8,7 +8,7 @@
   
   /* Navbar */
   #navbar {
-    background-color: #2f4f2f;
+    background-color: #2e7d32;
     padding: 15px 30px;
     display: flex;
     align-items: center;
@@ -23,6 +23,7 @@
   .logo-img {
     height: 50px;   /* adjust as needed */
     width: auto;
+    border-radius: 10%;
   }
   
   #navbar-right button {

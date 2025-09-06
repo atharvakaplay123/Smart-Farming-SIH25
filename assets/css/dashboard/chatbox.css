@@ -1,79 +1,89 @@
-/* Floating chat icon */
-#chat-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #2e7d32;
-    color: #fff;
-    font-size: 24px;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  }
-  
-  /* Chat box */
-  #chat-box {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 300px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
-  
-  .hidden { display: none; }
-  
-  /* Header */
-  .chat-header {
-    background: #356937;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .chat-header button {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  /* Body */
-  .chat-body {
-    padding: 10px;
-    height: 200px;
-    overflow-y: auto;
-    font-size: 14px;
-  }
-  
-  /* Footer */
-  .chat-footer {
-    display: flex;
-    border-top: 1px solid #ccc;
-  }
-  
-  .chat-footer input {
-    flex: 1;
-    border: none;
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .chat-footer button {
-    background: #375f39;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  
+/* Smooth scroll for <a> tags */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Chatbot styles */
+#chatbox {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  height: 400px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none; /* hidden by default */
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+#chatbox .chat-header {
+  background: #35b835;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+#chatbox .chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+#chatbox .chat-footer {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+#chatbox .chat-footer input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+#chatbox .chat-footer button {
+  padding: 10px 15px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+/* Toggle button (chat icon) */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+.msg {
+  padding: 8px 12px;
+  margin: 6px 0;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.msg.bot {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+.msg.user {
+  background: #4CAF50;
+  color: white;
+  align-self: flex-end;
+}
