@@ -1,45 +1,57 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background: #f5f7fa;
-    color: #333;
-  }
-  
-  /* Navbar */
-  #navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #2e7d32; /* green theme */
-    padding: 12px 20px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Logo */
-  .logo-img {
-    height: 45px;
-    width: auto;
-    border-radius: 6px;
-  }
-  
-  /* Right side button */
-  #navbar-right button {
-    background: #ffffff;
-    border: none;
-    padding: 10px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 18px;
-    color: #2e7d32;
-  }
-  
-  #navbar-right button:hover {
-    background: #e8f5e9;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2e7d32;
+  /* green theme */
+  padding: 12px 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+  margin: 5px;
+  padding: 0px 5px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  color: #b9b9b9;
+}
+
+/* Logo */
+.logo-img {
+  height: 45px;
+  width: auto;
+  border-radius: 6px;
+}
+
+/* Right side button */
+#navbar-right button {
+  background: #ffffff;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+#navbar-right button:hover {
+  background: #e8f5e9;
+}

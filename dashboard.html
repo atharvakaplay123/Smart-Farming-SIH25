@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <div id="navbar">
+  <header id="navbar">
     <!-- Logo on the left -->
     <div id="navbar-left">
       <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
@@ -23,18 +23,12 @@
 
     <!-- Buttons on the right -->
     <div id="navbar-right">
+      <a class="nav-btn">sensor data</a>
+      <a class="nav-btn">weather</a>
+      <a class="nav-btn">recommendation</a>
       <button><i class="fa-solid fa-plus"></i></button>
     </div>
-  </div>
-  <div id="main">
-    <a>sensor data</a>
-    <a>weather</a>
-    <a>recommendation</a>
-    <a>irrigation</a>
-    <a>crop manager</a>
-    <!-- <a>chat bot</a> -->
-  </div>
-
+  </header>
   <div class="body">
 
     <div class="hero">
@@ -74,7 +68,6 @@
     <div class="head">
       <h3>Sensor Data — Crop Health</h3>
       <div class="controls">
-
         <button class="btn">Refresh</button>
       </div>
     </div>
@@ -126,7 +119,6 @@
     <div class="head">
       <h3>Weather — Region-wise</h3>
       <div class="controls">
-        <button class="btn ghost">Forecast</button>
         <button class="btn">Update</button>
       </div>
     </div>
@@ -350,11 +342,6 @@
       <button onclick="sendMessage()">Send</button>
     </div>
   </div>
-
-
-
-
-
   <script src="assets/js/script.js"></script>
 </body>
 

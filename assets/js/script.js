@@ -5,13 +5,10 @@ const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-
 const sectionMap = {
   "sensor data": "sensors",
   "weather": "weather",
-  "recommendation": "recommendations",
-  // "irrigation": "irrigation",
-  // "crop manager": "crop-manager",
-  "chat bot": "chat-toggle" // scrolls to chatbot button
+  "recommendation": "recommendations"
 };
 
-document.querySelectorAll("#main a").forEach(anchor => {
+document.querySelectorAll(".nav-btn").forEach(anchor => {
   anchor.style.cursor = "pointer";
   anchor.addEventListener("click", () => {
     const key = anchor.textContent.trim().toLowerCase();
@@ -22,7 +19,6 @@ document.querySelectorAll("#main a").forEach(anchor => {
     }
   });
 });
-
 
 // Chatbot toggle functionality
 const chatToggle = document.getElementById("chat-toggle");
@@ -91,3 +87,27 @@ async function sendMessage() {
   // chatbox.scrollTop = chatbox.scrollHeight;
 }
 
+async function getWeather() {
+  const city = document.getElementById("cityInput").value;
+  const apiKey = "46c773c392ba46cb461571de2a38ec9d"; // Replace with your OpenWeatherMap API key
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("City not found");
+
+    const data = await response.json();
+    console.log(data)
+    document.getElementById("weatherResult").innerHTML = `
+      <h2>${data.name}, ${data.sys.country}</h2>
+      <p>🌡️ Temperature: ${data.main.temp} °C</p>
+      <p>🌡️ Humidity: ${data.main.humidity} %</p>
+      <p>☁️ Weather: ${data.weather[0].description}</p>
+      <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
+    `;
+    return data
+  } catch (error) {
+    // document.getElementById("weatherResult").innerHTML = `<p style="color:red">${error.message}</p>`;
+    console.log(error.message)
+  }
+}

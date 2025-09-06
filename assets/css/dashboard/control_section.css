@@ -1,39 +1,36 @@
 /* Body section */
 .card .body {
-    margin-top: 15px;
-  }
-  
-  /* Controls section */
-  .card .body .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  
-  .card .body label {
-    display: block;
-    font-weight: bold;
-    font-size: 13px;
-    margin-bottom: 5px;
-    color: #454444;
-  }
-  
-  .card .body select,
-  .card .body input {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
-    outline: none;
-    transition: 0.3s;
-  }
-  
-  .card .body select:focus,
-  .card .body input:focus {
-    border-color: #2e7d32;
-    box-shadow: 0 0 4px rgba(46, 125, 50, 0.3);
-  }
-  
-  
-  
+  margin-top: 15px;
+}
+
+/* Controls section */
+.card .body .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card .body label {
+  display: block;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #454444;
+}
+
+.card .body select,
+.card .body input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.card .body select:focus,
+.card .body input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 4px rgba(46, 125, 50, 0.3);
+}

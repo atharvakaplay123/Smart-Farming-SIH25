@@ -12,11 +12,16 @@ html {
   height: 400px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: none; /* hidden by default */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: none;
+  /* hidden by default */
   flex-direction: column;
   overflow: hidden;
   z-index: 9999;
+}
+
+#chatbox #chat-close {
+  cursor: pointer;
 }
 
 #chatbox .chat-header {
@@ -66,9 +71,10 @@ html {
   padding: 15px;
   font-size: 22px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 9999;
 }
+
 .msg {
   padding: 8px 12px;
   margin: 6px 0;
