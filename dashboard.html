@@ -40,17 +40,7 @@
       </div>
     </div>
     <div class="kpis" role="list">
-
-      <!-- <div class="kpi" role="listitem">
-                <div class="label">Irrigation Today</div>
-                <div class="value">18,400 L</div>
-                <div class="trend">4 schedules</div>
-              </div> -->
-      <!-- <div class="kpi" role="listitem">
-                <div class="label">Devices Online</div>
-                <div class="value">42/45</div>
-                <div class="trend" style="color:var(--good)">Stable</div>
-              </div> -->
+      <!-- kpi is displayed through js -->
     </div>
   </div>
   <!-- sensor -->
@@ -83,7 +73,7 @@
     <div class="head">
       <h3>Weather — Region-wise</h3>
       <div class="controls">
-        <button class="btn">Update</button>
+        <button onclick="getWeather()" class="btn">Update</button>
       </div>
     </div>
     <div class="body">
@@ -91,10 +81,10 @@
         <div style="flex:1; min-width:200px">
           <label for="region">Region</label>
           <select id="region">
-            <option>Punjab</option>
-            <option>Maharashtra</option>
-            <option>Tamil Nadu</option>
+            <option>Indore</option>
+            <option>Bangalore</option>
             <option>Telangana</option>
+            <option>Maharashtra</option>
           </select>
         </div>
         <div style="flex:1; min-width:200px">
@@ -115,33 +105,14 @@
           <tr>
             <th>Day</th>
             <th>Condition</th>
-            <th>High / Low</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
             <th>Rain (mm)</th>
             <th>Wind</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Today</td>
-            <td>Partly Cloudy</td>
-            <td>34°C / 27°C</td>
-            <td>2.4</td>
-            <td>12 km/h</td>
-          </tr>
-          <tr>
-            <td>Tomorrow</td>
-            <td>Light Showers</td>
-            <td>32°C / 25°C</td>
-            <td>8.0</td>
-            <td>14 km/h</td>
-          </tr>
-          <tr>
-            <td>+2 days</td>
-            <td>Sunny</td>
-            <td>35°C / 26°C</td>
-            <td>0.0</td>
-            <td>10 km/h</td>
-          </tr>
+        <tbody id="weather-data">
+          <!-- weather data is displayed from weather.js -->
         </tbody>
       </table>
     </div>
@@ -307,6 +278,7 @@
     </div>
   </div>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/weather.js"></script>
 </body>
 
 </html>
