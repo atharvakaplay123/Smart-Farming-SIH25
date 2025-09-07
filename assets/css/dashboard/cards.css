@@ -1,13 +1,12 @@
 .weather-card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
     background: white;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 250px;
 }
 
 .weather-card h3 {
@@ -27,18 +26,101 @@
     color: #555;
 }
 
-.weather-card .head{
+.weather-card .head {
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
-.weather-card .head button{
+.weather-card .head button {
     background: none;
     border: none;
     font-size: 20px;
     color: #2e7d32;
 }
+.weather-card select{
+    font-size: 18px;
+    color: #2e7d32;
+    font-weight: 600;
+}
 
-.weather-card .head button:hover{
+.weather-card .head button:hover {
     color: #46bc4c;
+}
+
+.weather-card select{
+    border: none;
+}
+.weather-card select:active{
+    border: none;
+}
+
+.circle-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.circle-card:hover {
+    transform: translateY(-8px);
+}
+
+.circle-card h3 {
+    margin: 0;
+    padding: 0;
+}
+.circle-card h1{
+    font-size: 50px;
+}
+.circle-card i{
+    color: #2e7d32;
+}
+
+/* Circular display (hollow style) */
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#2e7d32 calc(var(--value) * 1%), #e6e6e6 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.circle span {
+    position: relative;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.circle::after {
+    content: attr(data-label);
+    position: absolute;
+    font-size: 12px;
+    color: #666;
+    bottom: -18px;
 }

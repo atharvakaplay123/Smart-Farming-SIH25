@@ -44,87 +44,27 @@
       </div>
     </div>
     <div class="kpis" role="list">
-      <!-- kpi is displayed through js -->
+      <div class="kpi weather-card" role="listitem">
+        <div class="head">
+          <h3>⛅
+            <select id="region">
+              <option>Indore</option>
+              <option>Bhopal</option>
+            </select>
+          </h3>
+          <button onclick="getWeather()"><i class="fa-solid fa-rotate"></i></button>
+        </div>
+        <div id="weather-data">
+          <!-- data is displayed through weather.js -->
+        </div>
+      </div>
     </div>
     <div class="kpis" role="list">
       <!-- kpi is displayed through js -->
     </div>
   </div>
-
-  <!-- sensor -->
-  <section id="sensors" class="card">
-    <div class="head">
-      <h3>Sensor Data — Crop Health</h3>
-      <div class="controls">
-        <!-- <button class="btn">Refresh</button> -->
-      </div>
-    </div>
-    <table aria-label="Sensor table">
-      <thead>
-        <tr>
-          <th>Device</th>
-          <th>Location</th>
-          <th>Moisture</th>
-          <th>Humidity</th>
-          <th>Temp</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="sensor-data">
-        <!-- sensor data is displayed from firebase.js -->
-      </tbody>
-    </table>
-    </div>
-  </section>
   <!-- weather -->
-  <section id="weather" class="card">
-    <div class="head">
-      <h3>Weather — Region-wise</h3>
-      <div class="controls">
-        <button onclick="getWeather()" class="btn">Update</button>
-      </div>
-    </div>
-    <div class="body">
-      <div class="controls" style="margin-bottom:.8rem">
-        <div style="flex:1; min-width:200px">
-          <label for="region">Region</label>
-          <select id="region">
-            <option>Indore</option>
-            <option>Bangalore</option>
-            <option>Telangana</option>
-            <option>Maharashtra</option>
-          </select>
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="district">District</label>
-          <input id="district" type="text" placeholder="e.g., Sangrur" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="days">Days</label>
-          <select id="days">
-            <option>1 day</option>
-            <option>3 days</option>
-            <option>7 days</option>
-          </select>
-        </div>
-      </div>
-      <table aria-label="Weather table">
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Condition</th>
-            <th>Temperature</th>
-            <th>Humidity</th>
-            <th>Rain (mm)</th>
-            <th>Wind</th>
-          </tr>
-        </thead>
-        <tbody id="weather-data">
-          <!-- weather data is displayed from weather.js -->
-        </tbody>
-      </table>
-    </div>
-  </section>
+
   <!-- recommendation -->
   <section id="recommendations" class="card">
     <div class="head">
@@ -245,26 +185,6 @@
         </div>
       </section> -->
   <!-- crop-manager -->
-
-  <!-- <section id="crop-manager" class="card">
-        <div class="head">
-          <h3>Crop Manager</h3>
-          <div class="controls">
-            
-            <button class="btn">Add Crop</button>
-          </div>
-        </div>
-        <div class="body">
-          <table aria-label="Crop manager table">
-            <thead><tr><th>Crop</th><th>Sowing</th><th>Harvest</th><th>Health</th><th>Notes</th></tr></thead>
-            <tbody>
-              <tr><td>Wheat</td><td>2025‑11‑12</td><td>2026‑03‑20</td><td><span class="status good">Good</span></td><td>Fertilizer due next week</td></tr>
-              <tr><td>Tomato</td><td>2025‑07‑01</td><td>2025‑10‑15</td><td><span class="status warn">Monitor</span></td><td>Whitefly risk</td></tr>
-              <tr><td>Mango</td><td>—</td><td>—</td><td><span class="status good">Healthy</span></td><td>Pruning scheduled</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section> -->
 
   <!-- Chatbot Toggle Button -->
   <div id="chat-toggle"><i class="fa-solid fa-comment"></i></div>

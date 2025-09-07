@@ -38,29 +38,40 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     // sensor_obj.humidity = Number(sen_data.Humidity)
     // sensor_obj.temperature = Number(sen_data.Temperature)
     // sensor_obj.soil_moisture = Number(sen_data.Soil_Moisture)
-    document.getElementById("sensor-data").innerHTML = `
-    <tr>
-        <td>Node-01</td>
-        <td>North Field</td>
-        <td>${sen_data.Soil_Moisture}%</td>
-        <td>${sen_data.Humidity}%</td>
-        <td>${sen_data.Temperature}°C</td>
-        <td><span class="status ${stat}">${stat_txt}</span></td>
-    </tr>
-    `
+    // document.getElementById("sensor-data").innerHTML = `
+    // <tr>
+    //     <td>Node-01</td>
+    //     <td>North Field</td>
+    //     <td>${sen_data.Soil_Moisture}%</td>
+    //     <td>${sen_data.Humidity}%</td>
+    //     <td>${sen_data.Temperature}°C</td>
+    //     <td><span class="status ${stat}">${stat_txt}</span></td>
+    // </tr>
+    // `
     document.getElementsByClassName("kpis")[1].innerHTML = `
-    
-    <div class="kpi" role="listitem">
-        <div class="label">Avg. Crop Health</div>
-        <div class="value">${avg}%</div>
-        <div class="bar" aria-hidden="true"><i style="width:${avg}%"></i></div>
+    <div class="kpi circle-card">
+        <h3>Avg. Crop Health</h3>
+        <div class="circle" style="--value:${avg};" data-label="${avg}%"><span><i
+                class="fas fa-tint"></i></span></div>
         <div class="trend" style="color:var(--good)">▲ +3% this week</div>
     </div>
-    <div class="kpi" role="listitem">
-        <div class="label">Soil Moisture</div>
-        <div class="value">${sen_data.Soil_Moisture}%</div>
-        <div class="bar" aria-hidden="true"><i style="width:${sen_data.Soil_Moisture}%"></i></div>
-        <div class="trend" style="color:var(--${stat})">● ${stat_txt1}</div>
+    <div class="kpi circle-card">
+        <h3>Temperature</h3>
+        <h1><i class="fa-solid fa-temperature-high"></i></h1>
+        <h1>${sen_data.Temperature}°C</h1>
+        <div class="trend" style="color:var(--good)">Air</div>
+    </div>
+    <div class="kpi circle-card">
+        <h3>Humidity</h3>
+        <div class="circle" style="--value:${sen_data.Humidity};" data-label="${sen_data.Humidity}%"><span><i
+                class="fas fa-tint"></i></span></div>
+        <div class="trend" style="color:var(--good)">Air</div>
+    </div>
+    <div class="kpi circle-card">
+        <h3>Soil Moisture</h3>
+        <div class="circle" style="--value:${sen_data.Soil_Moisture};" data-label="${sen_data.Soil_Moisture}%"><span><i
+                class="fa-solid fa-seedling"></i></span></div>
+        <div class="trend ${stat}">${stat_txt1}</div>
     </div>
     `
 });

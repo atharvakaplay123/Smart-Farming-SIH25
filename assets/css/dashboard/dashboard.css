@@ -9,6 +9,11 @@
 body {
   background: #f5f7fa;
   color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.show-only-in-ph {
+  display: none;
 }
 
 /* Main section links */

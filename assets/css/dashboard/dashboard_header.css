@@ -3,7 +3,7 @@ header {
   display: flex;
   position: sticky;
   top: 0;
-  z-index: 000;
+  z-index: 1000;
   justify-content: space-between;
   align-items: center;
   background: #2e7d32;
@@ -12,10 +12,10 @@ header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-#navbar-left{
+#navbar-left {
   display: flex;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 /* Logo */
@@ -25,7 +25,7 @@ header {
   border-radius: 6px;
 }
 
-#navbar-left h1{
+#navbar-left h1 {
   color: white;
   font-weight: 200;
   font-size: 35px;
