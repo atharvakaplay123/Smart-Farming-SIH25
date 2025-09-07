@@ -1,5 +1,5 @@
-import { weather_obj } from "./weather.js";
-import { sensor_obj } from "./firebase.js";
+// import { weather_obj } from "./weather.js";
+// import { sensor_obj } from "./firebase.js";
 
 const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
@@ -68,20 +68,20 @@ chatInput.addEventListener("keypress", (e) => {
   }
 });
 
-const context = `
-you're a professional crop suggestor, and agriculture expert, suggest and answer my questions according to the following data
-sensors deployed at the feild:-
-temperature=${sensor_obj.temperature} degree C
-humidity=${sensor_obj.humidity} %
-soil moisture=${sensor_obj.soil_moisture}
+// const context = `
+// you're a professional crop suggestor, and agriculture expert, suggest and answer my questions according to the following data
+// sensors deployed at the feild:-
+// temperature=${sensor_obj.temperature} degree C
+// humidity=${sensor_obj.humidity} %
+// soil moisture=${sensor_obj.soil_moisture}
 
-weather conditions in that region:-
-temperature=${weather_obj.temperature} degree C
-humidity=${weather_obj.humidity} %
-rainfall(in mm)=${weather_obj.precipetation} mm
-weather condition=${weather_obj.condition}
-`
-console.log(context)
+// weather conditions in that region:-
+// temperature=${weather_obj.temperature} degree C
+// humidity=${weather_obj.humidity} %
+// rainfall(in mm)=${weather_obj.precipetation} mm
+// weather condition=${weather_obj.condition}
+// `
+// console.log(context)
 
 async function sendMessage() {
   const input = chatInput.value.trim();

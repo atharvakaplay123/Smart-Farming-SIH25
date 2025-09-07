@@ -1,9 +1,9 @@
-export const weather_obj={
-    condition:" ",
-    temperature:0,
-    humidity:0,
-    precipetation:0
-}
+// export const weather_obj={
+//     condition:" ",
+//     temperature:0,
+//     humidity:0,
+//     precipetation:0
+// }
 
 async function getWeather() {
     const city = document.getElementById("region").value;
@@ -16,10 +16,10 @@ async function getWeather() {
         const data = await response.json();
         console.log(data)
         document.getElementById("rain").value = data.current.precip_mm
-        weather_obj.condition=data.current.condition.text
-        weather_obj.temperature=Number(data.current.temp_c)
-        weather_obj.humidity=Number(data.current.condition.humidity)
-        weather_obj.precipetation=Number(data.current.precip_mm)
+        // weather_obj.condition=data.current.condition.text
+        // weather_obj.temperature=Number(data.current.temp_c)
+        // weather_obj.humidity=Number(data.current.condition.humidity)
+        // weather_obj.precipetation=Number(data.current.precip_mm)
         document.getElementById("weather-data").innerHTML = `
         <tr>
             <td>Today</td>
