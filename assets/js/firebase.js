@@ -31,8 +31,8 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     let stat = ""
     let stat_txt = ""
     let stat_txt1 = ""
-    if (Number(sen_data.Soil_Moisture) > 80) { stat = "good"; stat_txt = "Optimal"; stat_txt1 = "On Track"}
-    else if (Number(sen_data.Soil_Moisture) > 60 && Number(sen_data.Soil_Moisture) < 79) { stat = "warn"; stat_txt = "Stressed"; stat_txt1 = "Monitor"}
+    if (Number(sen_data.Soil_Moisture) > 80) { stat = "good"; stat_txt = "Optimal"; stat_txt1 = "On Track" }
+    else if (Number(sen_data.Soil_Moisture) > 60 && Number(sen_data.Soil_Moisture) < 79) { stat = "warn"; stat_txt = "Stressed"; stat_txt1 = "Monitor" }
     else { stat = "bad"; stat_txt = "Critical"; stat_txt1 = "Needs attention" }
     const avg = (Number(sen_data.Soil_Moisture) + Number(sen_data.Humidity)) / 2
     // sensor_obj.humidity = Number(sen_data.Humidity)
@@ -48,8 +48,8 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
         <td><span class="status ${stat}">${stat_txt}</span></td>
     </tr>
     `
-
-    document.getElementsByClassName("kpis")[0].innerHTML = `
+    document.getElementsByClassName("kpis")[1].innerHTML = `
+    
     <div class="kpi" role="listitem">
         <div class="label">Avg. Crop Health</div>
         <div class="value">${avg}%</div>

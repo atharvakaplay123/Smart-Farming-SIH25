@@ -20,7 +20,22 @@ async function getWeather() {
         // weather_obj.temperature=Number(data.current.temp_c)
         // weather_obj.humidity=Number(data.current.condition.humidity)
         // weather_obj.precipetation=Number(data.current.precip_mm)
-        document.getElementById("weather-data").innerHTML = `
+        document.getElementsByClassName("kpis")[0].innerHTML = `
+        <div class="kpi weather-card card" role="listitem">
+        <div class="head">
+          <h3>⛅ ${data.location.name}</h3>
+          <button onclick="getWeather()" ><i class="fa-solid fa-rotate"></i></button>
+        </div>
+        <div class="temp">${data.current.temp_c}°C</div>
+        <div class="details">
+          <p>Condition: ${data.current.condition.text}</p>
+          <p>Humidity: ${data.current.humidity}%</p>
+          <p>Wind: ${data.current.wind_kph} km/h</p>
+          <p>Precipitation: ${data.current.precip_mm} mm</p>
+        </div>
+      </div>
+        `
+        document.getElementsByClassName("weather-data").innerHTML = `
         <tr>
             <td>Today</td>
             <td>${data.current.condition.text}</td>

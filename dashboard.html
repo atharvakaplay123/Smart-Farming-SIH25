@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
   <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
   <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
+  <link rel="stylesheet" href="assets/css/dashboard/cards.css">
   <link rel="stylesheet" href="assets/css/mediaq.css">
   <script type="module" src="assets/js/firebase.js"></script>
 </head>
@@ -21,6 +22,7 @@
     <!-- Logo on the left -->
     <div id="navbar-left">
       <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
+      <h1>Dashboard</h1>
     </div>
 
     <!-- Buttons on the right -->
@@ -32,8 +34,8 @@
       <button class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
-  <div class="body">
 
+  <div class="body">
     <div class="hero">
       <div>
         <h1>Welcome back! Your fields look <span style="color:var(--good)">healthy</span> today.</h1>
@@ -44,7 +46,11 @@
     <div class="kpis" role="list">
       <!-- kpi is displayed through js -->
     </div>
+    <div class="kpis" role="list">
+      <!-- kpi is displayed through js -->
+    </div>
   </div>
+
   <!-- sensor -->
   <section id="sensors" class="card">
     <div class="head">
@@ -261,13 +267,13 @@
       </section> -->
 
   <!-- Chatbot Toggle Button -->
-  <div id="chat-toggle">💬</div>
+  <div id="chat-toggle"><i class="fa-solid fa-comment"></i></div>
 
   <!-- Chatbot Box -->
   <div id="chatbox">
     <div class="chat-header">
       <span>ChatBot</span>
-      <span id="chat-close">×</span>
+      <span id="chat-close"><i class="fa-solid fa-xmark"></i></span>
     </div>
 
     <div class="chat-body">

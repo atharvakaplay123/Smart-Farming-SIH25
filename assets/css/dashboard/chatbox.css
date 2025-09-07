@@ -67,6 +67,8 @@ html {
   right: 20px;
   background: #4CAF50;
   color: white;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   padding: 15px;
   font-size: 22px;

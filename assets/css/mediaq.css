@@ -1,11 +1,33 @@
 @media only screen and (max-width: 768px) {
-    .card{
+    .card {
         margin: 20px;
     }
-    .hide-in-ph{
+
+    .hide-in-ph {
         display: none;
     }
-    .show-only-in-ph{
+
+    .show-only-in-ph {
         display: unset;
     }
+
+    #navbar-left h1 {
+        color: white;
+        font-weight: 200;
+        font-size: 25px;
+    }
+
+    #cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.show-only-in-ph {
+    display: none;
 }
