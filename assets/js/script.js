@@ -1,5 +1,14 @@
+import { weather_obj } from "./weather.js";
+import { sensor_obj } from "./firebase.js";
+
 const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
+
+// const weather_info = require("./weather.js");
+// const sensor_info = require("./firebase.js");
+
+// console.log(weather_info)
+// console.log(sensor_info)
 
 // Map <a> text → section id
 const sectionMap = {
@@ -59,6 +68,21 @@ chatInput.addEventListener("keypress", (e) => {
   }
 });
 
+const context = `
+you're a professional crop suggestor, and agriculture expert, suggest and answer my questions according to the following data
+sensors deployed at the feild:-
+temperature=${sensor_obj.temperature} degree C
+humidity=${sensor_obj.humidity} %
+soil moisture=${sensor_obj.soil_moisture}
+
+weather conditions in that region:-
+temperature=${weather_obj.temperature} degree C
+humidity=${weather_obj.humidity} %
+rainfall(in mm)=${weather_obj.precipetation} mm
+weather condition=${weather_obj.condition}
+`
+console.log(context)
+
 async function sendMessage() {
   const input = chatInput.value.trim();
   if (!input) return;
@@ -67,7 +91,7 @@ async function sendMessage() {
   addMessage("user", input); // user message
   chatInput.value = "";
 
-  // input = contxt + input
+  // const input1 = context + input
   // Send to Gemini
   const response = await fetch(API_URL, {
     method: "POST",
@@ -85,29 +109,4 @@ async function sendMessage() {
   addMessage("bot", botReply)
   // chatbox.innerHTML += `<div class="bot"><b>Bot:</b> ${botReply}</div>`;
   // chatbox.scrollTop = chatbox.scrollHeight;
-}
-
-async function getWeather() {
-  const city = document.getElementById("cityInput").value;
-  const apiKey = "46c773c392ba46cb461571de2a38ec9d"; // Replace with your OpenWeatherMap API key
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("City not found");
-
-    const data = await response.json();
-    console.log(data)
-    document.getElementById("weatherResult").innerHTML = `
-      <h2>${data.name}, ${data.sys.country}</h2>
-      <p>🌡️ Temperature: ${data.main.temp} °C</p>
-      <p>🌡️ Humidity: ${data.main.humidity} %</p>
-      <p>☁️ Weather: ${data.weather[0].description}</p>
-      <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
-    `;
-    return data
-  } catch (error) {
-    // document.getElementById("weatherResult").innerHTML = `<p style="color:red">${error.message}</p>`;
-    console.log(error.message)
-  }
 }

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
   <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
   <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
+  <link rel="stylesheet" href="assets/css/mediaq.css">
   <script type="module" src="assets/js/firebase.js"></script>
 </head>
 
@@ -24,10 +25,11 @@
 
     <!-- Buttons on the right -->
     <div id="navbar-right">
-      <a class="nav-btn">sensor data</a>
-      <a class="nav-btn">weather</a>
-      <a class="nav-btn">recommendation</a>
+      <a class="nav-btn hide-in-ph">sensor data</a>
+      <a class="nav-btn hide-in-ph">weather</a>
+      <a class="nav-btn hide-in-ph">recommendation</a>
       <button><i class="fa-solid fa-plus"></i></button>
+      <button class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
   <div class="body">
@@ -277,8 +279,8 @@
       <button onclick="sendMessage()">Send</button>
     </div>
   </div>
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/weather.js"></script>
+  <script type="module" src="assets/js/weather.js"></script>
+  <script type="module" src="assets/js/script.js"></script>
 </body>
 
 </html>

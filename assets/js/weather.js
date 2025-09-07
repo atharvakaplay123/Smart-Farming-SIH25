@@ -1,8 +1,12 @@
+export const weather_obj={
+    condition:" ",
+    temperature:0,
+    humidity:0,
+    precipetation:0
+}
+
 async function getWeather() {
     const city = document.getElementById("region").value;
-    // const city = "indore";
-    // const apiKey = "46c773c392ba46cb461571de2a38ec9d"; // Replace with your OpenWeatherMap API key
-    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     const apikey = "c14347e9386d48f7bb4155436250609"
     const url = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}&days=2`
     try {
@@ -11,6 +15,11 @@ async function getWeather() {
 
         const data = await response.json();
         console.log(data)
+        document.getElementById("rain").value = data.current.precip_mm
+        weather_obj.condition=data.current.condition.text
+        weather_obj.temperature=Number(data.current.temp_c)
+        weather_obj.humidity=Number(data.current.condition.humidity)
+        weather_obj.precipetation=Number(data.current.precip_mm)
         document.getElementById("weather-data").innerHTML = `
         <tr>
             <td>Today</td>
@@ -20,15 +29,9 @@ async function getWeather() {
             <td>${data.current.precip_mm} mm</td>
             <td>${data.current.wind_kph} km/h</td>
         </tr>
-
-      
     `;
     } catch (error) {
-        // document.getElementById("weatherResult").innerHTML = `<p style="color:red">${error.message}</p>`;
         console.log(error.message)
     }
 }
 getWeather()
-    //   <h2>${data.name}, ${data.sys.country}</h2>
-    //   <p>🌡️ Temperature: ${data.main.temp} °C</p>
-    //   <p>🌡️ Humidity: ${data.main.humidity} %</p>

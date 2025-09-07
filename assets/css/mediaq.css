@@ -1,0 +1,11 @@
+@media only screen and (max-width: 768px) {
+    .card{
+        margin: 20px;
+    }
+    .hide-in-ph{
+        display: none;
+    }
+    .show-only-in-ph{
+        display: unset;
+    }
+}

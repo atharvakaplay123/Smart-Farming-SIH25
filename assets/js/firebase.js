@@ -2,6 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
+
+export const sensor_obj={
+    temperature:0,
+    humidity:0,
+    soil_moisture:0
+}
+
 // Your Firebase project config (replace with yours from console)
 const firebaseConfig = {
     apiKey: "AIzaSyDGuDMWwY-0BK5FW64eJ18kpgUZeFArVs4",
@@ -26,6 +33,9 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     else if (Number(sen_data.Soil_Moisture) > 60 && Number(sen_data.Soil_Moisture) < 79) { stat = "warn" }
     else { stat = "bad" }
     const avg = (Number(sen_data.Soil_Moisture) + Number(sen_data.Humidity)) / 2
+    sensor_obj.humidity = Number(sen_data.Humidity)
+    sensor_obj.temperature = Number(sen_data.Temperature)
+    sensor_obj.soil_moisture = Number(sen_data.Soil_Moisture)
     document.getElementById("sensor-data").innerHTML = `
     <tr>
         <td>Node-01</td>
@@ -57,3 +67,4 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     </div>
     `
 });
+

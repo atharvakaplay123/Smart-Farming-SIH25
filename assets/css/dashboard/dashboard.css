@@ -106,6 +106,9 @@
    color: var(--text-dark);
  }
 
+ .show-only-in-ph{
+  display: none;
+ }
 
  /* Card container */
  .card {
