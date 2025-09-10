@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
   <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
   <link rel="stylesheet" href="assets/css/dashboard/cards.css">
+  <link rel="stylesheet" href="assets/css/sidemenu.css">
   <link rel="stylesheet" href="assets/css/mediaq.css">
   <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
   <script type="module" src="assets/js/firebase.js"></script>
@@ -31,10 +32,29 @@
       <a class="nav-btn hide-in-ph">sensor data</a>
       <a class="nav-btn hide-in-ph">weather</a>
       <a class="nav-btn hide-in-ph">recommendation</a>
-      <button><i class="fa-solid fa-plus"></i></button>
-      <button class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
+      <button class="hide-in-ph"><i class="fa-solid fa-plus"></i></button>
+      <button onclick="open_sidebar()" class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
+  <section id="side-menu">
+    <div class="side-head">
+      <button onclick="close_sidebar()" class="cross"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="account">
+      <img src="assets/user.png" alt="">
+      <p>User</p>
+    </div>
+    <a class="nav-btn">Your Profile<i class="fa-solid fa-user"></i></a>
+    <a class="nav-btn">Add Devices<i class="fa-solid fa-plus"></i></a>
+    <hr>
+    <a onclick="close_sidebar()" class="nav-btn">Sensor Data<i class="fa-solid fa-wifi"></i></a>
+    <a onclick="close_sidebar()" class="nav-btn">Weather<i class="fa-solid fa-cloud"></i></a>
+    <a onclick="close_sidebar()" class="nav-btn">Recommendation<i class="fa-solid fa-check"></i></a>
+    <hr>
+    <a class="nav-btn">Devices<i class="fa-solid fa-power-off"></i></a>
+    <a class="nav-btn">Dashboard<i class="fa-solid fa-table-columns"></i></a>
+    <a class="nav-btn">Settings<i class="fa-solid fa-gear"></i></a>
+  </section>
 
   <div class="body">
     <div class="hero">
@@ -44,7 +64,7 @@
         </p>
       </div>
     </div>
-    <div class="kpis" role="list">
+    <div id="weather" class="kpis" role="list">
       <div class="kpi weather-card" role="listitem">
         <div class="head">
           <h3>⛅
@@ -60,7 +80,7 @@
         </div>
       </div>
     </div>
-    <div class="kpis" role="list">
+    <div id="sensors" class="kpis" role="list">
       <!-- kpi is displayed through js -->
     </div>
   </div>

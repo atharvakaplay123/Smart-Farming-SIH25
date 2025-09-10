@@ -17,6 +17,13 @@ const sectionMap = {
   "recommendation": "recommendations"
 };
 
+function open_sidebar(){
+  document.getElementById("side-menu").style.width="90%";
+}
+function close_sidebar(){
+  document.getElementById("side-menu").style.width="0%";
+}
+
 document.querySelectorAll(".nav-btn").forEach(anchor => {
   anchor.style.cursor = "pointer";
   anchor.addEventListener("click", () => {

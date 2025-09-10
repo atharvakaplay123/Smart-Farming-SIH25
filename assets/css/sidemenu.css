@@ -1,0 +1,57 @@
+#side-menu{
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* border-left: 2px solid grey; */
+    background-color: white;
+    width: 90%;
+    /* width: 0%; */
+    height: 100%;
+    z-index: 10000;
+    transition: all 0.3s ease;
+    background-color: #f3fff4;
+}
+#side-menu .account{
+    background-color: #2e7d32;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#side-menu img{
+    height: 50px;
+}
+#side-menu a{
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    color: black;
+    /* background-color: white; */
+}
+#side-menu a:hover{
+    background-color: #caface;
+    color: #2e7d32;
+}
+#side-menu .side-head{
+    display: flex;
+    justify-content: end;
+}
+#side-menu .cross{
+    background: none;
+    padding: 0px 15px;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #2e7d32;
+    border: none;
+}
