@@ -17,11 +17,11 @@ const sectionMap = {
   "recommendation": "recommendations"
 };
 
-function open_sidebar(){
-  document.getElementById("side-menu").style.width="90%";
+function open_sidebar() {
+  document.getElementById("side-menu").style.width = "90%";
 }
-function close_sidebar(){
-  document.getElementById("side-menu").style.width="0%";
+function close_sidebar() {
+  document.getElementById("side-menu").style.width = "0%";
 }
 
 document.querySelectorAll(".nav-btn").forEach(anchor => {
@@ -31,9 +31,15 @@ document.querySelectorAll(".nav-btn").forEach(anchor => {
     const sectionId = sectionMap[key];
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = document.querySelector("header").offsetHeight;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionTop - headerHeight,
+        behavior: "smooth"
+      });
     }
   });
+
 });
 
 // Chatbot toggle functionality
