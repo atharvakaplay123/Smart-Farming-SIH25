@@ -61,6 +61,12 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
         <div class="trend" style="color:var(--good)">Air</div>
     </div>
     <div class="kpi circle-card">
+        <h3>Lux</h3>
+        <h1><i class="fa-solid fa-bolt-lightning"></i></h1>
+        <h1>${(sen_data.lux).toFixed(2)}</h1>
+        <div class="trend" style="color:var(--good)">Air</div>
+    </div>
+    <div class="kpi circle-card">
         <h3>Humidity</h3>
         <div class="circle" style="--value:${Number(sen_data.Humidity).toFixed(2)};" data-label="${Number(sen_data.Humidity).toFixed(2)}%"><span><i
                 class="fas fa-tint"></i></span></div>
