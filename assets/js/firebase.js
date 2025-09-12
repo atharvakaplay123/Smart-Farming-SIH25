@@ -51,27 +51,31 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     document.getElementsByClassName("kpis")[1].innerHTML = `
     <div class="kpi circle-card">
         <h3>Avg. Crop Health</h3>
-        <div class="circle" style="--value:${avg};" data-label="${avg}%"><span><i
-                class="fas fa-tint"></i></span></div>
+        <div class="circle" style="--value:${(avg).toFixed(2)};" data-label="${(avg).toFixed(2)}%"><span><i class="fa-solid fa-leaf"></i></span></div>
         <div class="trend" style="color:var(--good)">▲ +3% this week</div>
     </div>
     <div class="kpi circle-card">
         <h3>Temperature</h3>
         <h1><i class="fa-solid fa-temperature-high"></i></h1>
-        <h1>${sen_data.Temperature}°C</h1>
+        <h1>${(sen_data.Temperature).toFixed(2)}°C</h1>
         <div class="trend" style="color:var(--good)">Air</div>
     </div>
     <div class="kpi circle-card">
         <h3>Humidity</h3>
-        <div class="circle" style="--value:${sen_data.Humidity};" data-label="${sen_data.Humidity}%"><span><i
+        <div class="circle" style="--value:${Number(sen_data.Humidity).toFixed(2)};" data-label="${Number(sen_data.Humidity).toFixed(2)}%"><span><i
                 class="fas fa-tint"></i></span></div>
         <div class="trend" style="color:var(--good)">Air</div>
     </div>
     <div class="kpi circle-card">
         <h3>Soil Moisture</h3>
-        <div class="circle" style="--value:${sen_data.Soil_Moisture};" data-label="${sen_data.Soil_Moisture}%"><span><i
+        <div class="circle" style="--value:${Number(sen_data.Soil_Moisture).toFixed(2)};" data-label="${Number(sen_data.Soil_Moisture).toFixed(2)}%"><span><i
                 class="fa-solid fa-seedling"></i></span></div>
         <div class="trend ${stat}">${stat_txt1}</div>
+    </div>
+    <div class="kpi circle-card">
+        <h3>Irrigation Tank</h3>
+        <div class="circle" style="--value:${Number(sen_data.Water_lvl).toFixed(2)};" data-label="${(sen_data.Water_lvl).toFixed(2)}%"><span><i class="fa-solid fa-glass-water-droplet"></i></span></div>
+        <div class="trend ${stat}">Water Level</div>
     </div>
     `
 });
