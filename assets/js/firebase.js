@@ -92,10 +92,10 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
         <div class="trend" style="color:var(--good)">Air</div>
     </div>
     <div class="kpi circle-card">
-        <h3>Lux</h3>
+        <h3>Sunlight</h3>
         <h1><i class="fa-solid fa-bolt-lightning"></i></h1>
         <h1>${(sen_data.lux).toFixed(2)}</h1>
-        <div class="trend" style="color:var(--good)">Air</div>
+        <div class="trend" style="color:var(--good)">Lux</div>
     </div>
     <div class="kpi circle-card">
         <h3>Humidity</h3>
