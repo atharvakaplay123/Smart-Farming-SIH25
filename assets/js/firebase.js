@@ -94,7 +94,7 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
     <div class="kpi circle-card">
         <h3>Sunlight</h3>
         <h1><i class="fa-solid fa-bolt-lightning"></i></h1>
-        <h1>${(sen_data.lux).toFixed(2)}</h1>
+        <h1>${(sen_data.lux).toFixed(2)} Lx</h1>
         <div class="trend" style="color:var(--good)">Lux</div>
     </div>
     <div class="kpi circle-card">
@@ -115,5 +115,11 @@ onValue(ref(db, "/smart_farming"), (snapshot) => {
         <div class="trend ${stat}">Water Level</div>
     </div>
     `
+    document.getElementById("Hu").value = Number(sen_data.Humidity).toFixed(2)
+    document.getElementById("temp").value = Number(sen_data.Temperature).toFixed(2)
+    document.getElementById("N").value = Number(sen_data.N).toFixed(2)
+    document.getElementById("P").value = Number(sen_data.P).toFixed(2)
+    document.getElementById("K").value = Number(sen_data.K).toFixed(2)
+    document.getElementById("ph").value = Number(sen_data.pH).toFixed(2)
 });
 

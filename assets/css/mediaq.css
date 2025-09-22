@@ -26,4 +26,15 @@
         flex-direction: column;
         align-items: flex-start;
     }
+.crop-card{
+    width:auto;
+}
+    .crop-card img {
+        width: 95%;
+        /* height: 10%; */
+    }
+
+    .crop-cards {
+        flex-direction: column;
+    }
 }

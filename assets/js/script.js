@@ -1,14 +1,7 @@
-// import { weather_obj } from "./weather.js";
-// import { sensor_obj } from "./firebase.js";
+let sensor_data = {}
 
 const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
-
-// const weather_info = require("./weather.js");
-// const sensor_info = require("./firebase.js");
-
-// console.log(weather_info)
-// console.log(sensor_info)
 
 // Map <a> text → section id
 const sectionMap = {
@@ -103,15 +96,32 @@ async function sendMessage() {
   // Display user message
   addMessage("user", input); // user message
   chatInput.value = "";
+  const prompt = `
+  You are an agricultural advisory assistant developed by team ByteCraft. You will always analyze the given sensor data before answering. The data includes soil nutrients (N, P, K in %), soil pH, rainfall (mm), humidity (%), and temperature (°C).
 
-  // const input1 = context + input
+Use this data as the primary reference to give personalized insights, recommendations, and explanations about crop health, fertilizer requirements, irrigation, disease risk, and suitable crops.
+
+When responding:
+
+Acknowledge the sensor values briefly.
+
+Explain what the values mean for soil and crop conditions.
+
+Provide recommendations (e.g., which fertilizer to use, water requirements, suitable crops, possible risks).
+
+Keep responses clear, professional, and practical for farmers.
+
+If the data is insufficient for a definite recommendation, politely state the limitation and suggest additional information.
+  ` + JSON.stringify(sensor_data) + input
   // Send to Gemini
+  // console.log(sensor_data)
+  console.log(prompt)
   const response = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents: [
-        { parts: [{ text: input }] }
+        { parts: [{ text: prompt }] }
       ]
     })
   });
@@ -123,3 +133,35 @@ async function sendMessage() {
   // chatbox.innerHTML += `<div class="bot"><b>Bot:</b> ${botReply}</div>`;
   // chatbox.scrollTop = chatbox.scrollHeight;
 }
+
+function hide_cre_controls() {
+  document.getElementById("cre_inputs").style.display = "none"
+}
+hide_cre_controls();
+function show_cre_controls() {
+  document.getElementById("cre_inputs").style.display = "flex"
+}
+let cre_disp_state = false
+function control_cre_cp() {
+  if (!cre_disp_state) {
+    show_cre_controls()
+    cre_disp_state = !cre_disp_state
+  } else {
+    hide_cre_controls()
+    cre_disp_state = !cre_disp_state
+  }
+}
+function feed_data() {
+  sensor_data.humidity = Number(document.getElementById("Hu").value)
+  sensor_data.temperature = Number(document.getElementById("temp").value)
+  sensor_data.N = Number(document.getElementById("N").value)
+  sensor_data.P = Number(document.getElementById("P").value)
+  sensor_data.K = Number(document.getElementById("K").value)
+  sensor_data.rain = Number(document.getElementById("rain").value)
+  sensor_data.pH = Number(document.getElementById("ph").value)
+  sensor_data.soil_moisture = Number(document.getElementById("ph").value)
+  console.log(sensor_data)
+}
+setTimeout(()=>{
+  feed_data()
+}, 3000)

@@ -22,7 +22,7 @@
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 #side-menu img{
     height: 50px;
@@ -54,4 +54,18 @@
     font-size: 20px;
     color: #2e7d32;
     border: none;
+}
+#side-menu .txt{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+#side-menu .location_icon{
+    color: #ff4949;
+}
+#side-menu .location{
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    font-size: 12px;
 }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
   <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
   <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
@@ -42,7 +42,13 @@
     </div>
     <div class="account">
       <img src="assets/user.png" alt="">
-      <p>User</p>
+      <div class="txt">
+        <p>User</p>
+        <div class="location">
+          <i class="location_icon fa-solid fa-location-dot"></i>
+          <p>Indore</p>
+        </div>
+      </div>
     </div>
     <a class="nav-btn">Your Profile<i class="fa-solid fa-user"></i></a>
     <a class="nav-btn">Add Devices<i class="fa-solid fa-plus"></i></a>
@@ -51,6 +57,7 @@
     <a onclick="close_sidebar()" class="nav-btn">Weather<i class="fa-solid fa-cloud"></i></a>
     <a onclick="close_sidebar()" class="nav-btn">Recommendation<i class="fa-solid fa-check"></i></a>
     <hr>
+    <a class="nav-btn">Languages<i class="fa-solid fa-language"></i></a>
     <a class="nav-btn">Devices<i class="fa-solid fa-power-off"></i></a>
     <a class="nav-btn">Dashboard<i class="fa-solid fa-table-columns"></i></a>
     <a class="nav-btn">Settings<i class="fa-solid fa-gear"></i></a>
@@ -64,6 +71,8 @@
         </p>
       </div>
     </div>
+
+    <!-- weather -->
     <div id="weather" class="kpis" role="list">
       <div class="kpi weather-card" role="listitem">
         <div class="head">
@@ -82,91 +91,68 @@
         </div>
       </div>
     </div>
+
+    <!-- sensors -->
     <div id="sensors" class="kpis" role="list">
-      <!-- kpi is displayed through js -->
+      <!-- kpi is displayed through firebase.js -->
     </div>
   </div>
-  <!-- weather -->
 
   <!-- recommendation -->
   <section id="recommendations" class="card">
     <div class="head">
       <h3>Crop Recommendations</h3>
       <div class="controls">
-        <!-- <button class="btn ghost">Save</button> -->
-        <button class="btn">Update</button>
+        <button onclick="feed_data()" class="btn">Update</button>
+        <button onclick="control_cre_cp()" class="btn"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
     <div class="body">
-      <div class="controls" style="margin-bottom: .8rem">
+      <div id="cre_inputs" class="controls" style="margin-bottom: .8rem">
         <div style="flex:1; min-width:200px">
-          <label for="soil">Soil Type</label>
-          <select id="soil">
-            <option>Alluvial</option>
-            <option>Black</option>
-            <option>Red</option>
-            <option>Laterite</option>
-          </select>
+          <label for="N">Nitrogen</label>
+          <input id="N" type="number" step="0.1" placeholder="Nitrogen" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="P">Phosphorus</label>
+          <input id="P" type="number" step="0.1" placeholder="Phosphorus" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="K">Sodium</label>
+          <input id="K" type="number" step="0.1" placeholder="Sodium" />
         </div>
         <div style="flex:1; min-width:200px">
           <label for="ph">Soil pH</label>
           <input id="ph" type="number" step="0.1" placeholder="6.5" />
         </div>
         <div style="flex:1; min-width:200px">
+          <label for="temp">Temperature</label>
+          <input id="temp" type="number" step="0.1" placeholder="Temperature" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="Hu">Humidity</label>
+          <input id="Hu" type="number" step="0.1" placeholder="Humidity" />
+        </div>
+        <div style="flex:1; min-width:200px">
           <label for="rain">Rainfall (mm)</label>
           <input id="rain" type="number" placeholder="120" />
         </div>
-        <div style="flex:1; min-width:200px">
-          <label for="season2">Season</label>
-          <select id="season2">
-            <option>Kharif</option>
-            <option>Rabi</option>
-            <option>Zaid</option>
-          </select>
+      </div>
+      <h3>Recommended Crops</h3>
+      <div class="crop-cards">
+        <div class="crop-card">
+          <h3>apple</h3>
+          <img src="assets/crops/apple.jpg" alt="apple">
+        </div>
+        <div class="crop-card">
+          <h3>banana</h3>
+          <img src="assets/crops/banana.jpg" alt="apple">
+        </div>
+        <div class="crop-card">
+          <h3>coconut</h3>
+          <img src="assets/crops/coconut.jpg" alt="apple">
         </div>
       </div>
-
-      <table aria-label="Recommended crops">
-        <thead>
-          <tr>
-            <th>Crop</th>
-            <th>Suitability</th>
-            <th>Expected Yield</th>
-            <th>Inputs</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Rice</td>
-            <td><span class="status good">High</span></td>
-            <td>5.2 t/ha</td>
-            <td>High water</td>
-            <td>Consider short-duration variety</td>
-          </tr>
-          <tr>
-            <td>Maize</td>
-            <td><span class="status good">High</span></td>
-            <td>4.1 t/ha</td>
-            <td>Moderate water</td>
-            <td>Drought tolerant hybrid</td>
-          </tr>
-          <tr>
-            <td>Pulses</td>
-            <td><span class="status warn">Medium</span></td>
-            <td>1.9 t/ha</td>
-            <td>Low water</td>
-            <td>Great for crop rotation</td>
-          </tr>
-          <tr>
-            <td>Cotton</td>
-            <td><span class="status bad">Low</span></td>
-            <td>—</td>
-            <td>High water</td>
-            <td>Soil pH not ideal</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </section>
   <!-- irrigation -->

@@ -39,7 +39,8 @@
     font-size: 20px;
     color: #2e7d32;
 }
-.weather-card select{
+
+.weather-card select {
     font-size: 18px;
     color: #2e7d32;
     font-weight: 600;
@@ -50,10 +51,11 @@
     color: #46bc4c;
 }
 
-.weather-card select{
+.weather-card select {
     border: none;
 }
-.weather-card select:active{
+
+.weather-card select:active {
     border: none;
 }
 
@@ -80,10 +82,12 @@
     margin: 0;
     padding: 0;
 }
-.circle-card h1{
+
+.circle-card h1 {
     font-size: 50px;
 }
-.circle-card i{
+
+.circle-card i {
     color: #2e7d32;
 }
 
@@ -124,4 +128,24 @@
     font-size: 12px;
     color: #666;
     bottom: -18px;
+}
+
+.crop-card {
+    text-align: center;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 250px;
+    /* max-width: 1000px; */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    overflow-x: auto;
+}
+.crop-cards{
+    display: flex;
+}
+.crop-card img {
+    width: 200px;
+    /* height: 10%; */
 }
