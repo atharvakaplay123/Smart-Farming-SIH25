@@ -41,13 +41,17 @@ body {
   color: #ffffff;
   transform: translateY(-3px);
 }
-
+.card .controls{
+display: flex;
+gap: 10px;
+}
 /* Refresh button */
 .card .controls .btn {
-  background: #2e7d32;
-  color: #ffffff;
+  color: #2e7d32;
+  background: none;
+  /* color: #ffffff; */
   border: none;
-  padding: 8px 14px;
+  /* padding: 8px 14px; */
   border-radius: 6px;
   font-size: 14px;
   cursor: pointer;
@@ -55,7 +59,7 @@ body {
 }
 
 .card .controls .btn:hover {
-  background: #256428;
+  color: #46bc4c;
 }
 
 /* Table styling */

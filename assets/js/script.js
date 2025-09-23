@@ -165,3 +165,19 @@ function feed_data() {
 setTimeout(()=>{
   feed_data()
 }, 3000)
+function show_crops(){
+  document.getElementById("crop-cards").innerHTML = `
+  <div id="crop-card" class="crop-card">
+          <h3>apple</h3>
+          <img src="assets/crops/apple.jpg" alt="apple">
+        </div>
+        <div class="crop-card">
+          <h3>banana</h3>
+          <img src="assets/crops/banana.jpg" alt="apple">
+        </div>
+        <div class="crop-card">
+          <h3>coconut</h3>
+          <img src="assets/crops/coconut.jpg" alt="apple">
+        </div>
+  `
+}

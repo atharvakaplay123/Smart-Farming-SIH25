@@ -103,7 +103,7 @@
     <div class="head">
       <h3>Crop Recommendations</h3>
       <div class="controls">
-        <button onclick="feed_data()" class="btn">Update</button>
+        <button onclick="feed_data()" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
         <button onclick="control_cre_cp()" class="btn"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
@@ -139,19 +139,9 @@
         </div>
       </div>
       <h3>Recommended Crops</h3>
-      <div class="crop-cards">
-        <div class="crop-card">
-          <h3>apple</h3>
-          <img src="assets/crops/apple.jpg" alt="apple">
-        </div>
-        <div class="crop-card">
-          <h3>banana</h3>
-          <img src="assets/crops/banana.jpg" alt="apple">
-        </div>
-        <div class="crop-card">
-          <h3>coconut</h3>
-          <img src="assets/crops/coconut.jpg" alt="apple">
-        </div>
+      <div id="crop-cards" class="crop-cards">
+        <p><button onclick="show_crops()">Click Here to predict crops</button></p>
+        <!-- cards displayed through script.js -->
       </div>
     </div>
   </section>
