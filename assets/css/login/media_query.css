@@ -1,0 +1,75 @@
+@media (max-width: 768px) {
+    .page_container {
+      grid-template-columns: 1fr;   
+      grid-template-rows: auto auto; 
+      
+    }
+  
+    .left_page,.right_page,.form {
+      
+      width: 100%;
+      padding: 1rem;}
+  
+    #image {
+      width: 100%;       
+      height: 180px;     
+      margin-bottom: 1rem;
+    }
+  
+    .left_page h1 {
+      
+      font-size: 26px;
+    }
+  
+    .left_page p {
+      font-size: 14px;
+     
+    }
+  
+    .left_page button {
+      font-size: 16px;
+      padding: 10px 28px;
+    }
+  
+    .right_page {
+      grid-column: 1;
+      grid-row: 2;
+      width: 100%;          
+      padding: 1rem;      
+      justify-content: center;
+    }
+  
+    .right_page h1 {
+      font-size: 32px;
+      text-align: center;
+    }
+  
+    .form {
+      grid-column: 1;
+      grid-row: 3;
+      width: 100%;          
+      padding: 1rem;        
+      justify-content: center;
+    }
+  
+    .form form {
+      
+      margin-left: 0;    
+      
+    }
+  
+    .form input,
+    .form textarea,
+    #location {
+      width: 100%;       
+      padding: 0.8rem 1rem;
+      font-size: 16px;
+    }
+  
+    .form input,
+  .form select,
+  #submit {
+    width: 100%;
+  }
+  }
+  

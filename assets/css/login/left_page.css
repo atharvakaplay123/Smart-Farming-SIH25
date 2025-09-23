@@ -1,0 +1,43 @@
+.left_page{
+    grid-column:1;
+    grid-row:1 / span 2;
+    background:#2e7d32;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:28px;
+  }
+  #image{
+    background-image: url("../../login_image.jpg");
+    background-size: cover;       
+  margin-bottom: 2rem;
+  width: 90%;                 
+    height: 20rem; 
+  }
+  .left_page h1{
+    font-size:34px;
+    margin: 0 0 1.5rem 0;
+    }
+  .left_page p{
+    font-size:15px;
+    margin: 0 0 1.5rem 0;
+    }
+  .left_page button{
+    padding:12px 32px;
+    font-size:18px;
+    background:#1b5e20;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer
+  }
+  .left_page button:hover{
+    background:#43a047
+  }
+  .left_page button a{
+    text-decoration: none;
+    color: white;
+  }

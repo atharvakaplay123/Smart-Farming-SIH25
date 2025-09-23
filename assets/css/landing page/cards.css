@@ -8,7 +8,10 @@
     padding: 50px 80px;
     flex-direction: column;
   }
-  
+  a{
+    text-decoration: none;
+    color: #2f4f2f;
+  }
   /* Card Styling */
   .card {
     flex-direction: column;
