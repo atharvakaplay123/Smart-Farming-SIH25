@@ -1,47 +1,49 @@
  /* Cards Section */
-  /* Card Section Layout */
-  #hero-cards {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    padding: 50px 80px;
-    flex-direction: column;
-  }
-  a{
-    text-decoration: none;
-    color: #2f4f2f;
-  }
-  /* Card Styling */
-  .card {
-    flex-direction: column;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 30px;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Text Card */
-  .hero-text-card h2 {
-    font-size: 28px;
-    color: #2f4f2f;
-    margin-bottom: 20px;
-  }
-  
-  .hero-text-card p {
-    font-size: 18px;
-    color: #444;
-    line-height: 1.6;
-  }
-  
-  /* Image Card */
-  .hero-image-card img {
-    width: 50%;
-    height: auto;
-    border-radius: 12px;
-  }
+ /* Card Section Layout */
+ #hero-cards {
+   display: flex;
+   justify-content: center;
+   align-items: stretch;
+   gap: 30px;
+   padding: 50px 80px;
+   flex-direction: column;
+ }
+
+ a {
+   text-decoration: none;
+   color: #2f4f2f;
+ }
+
+ /* Card Styling */
+ .card {
+   flex-direction: column;
+   background: #ffffff;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+   padding: 30px;
+   transition: transform 0.3s;
+ }
+
+ .card:hover {
+   transform: translateY(-5px);
+ }
+
+ /* Text Card */
+ .hero-text-card h2 {
+   font-size: 28px;
+   color: #2f4f2f;
+   margin-bottom: 20px;
+ }
+
+ .hero-text-card p {
+   font-size: 18px;
+   color: #444;
+   line-height: 1.6;
+ }
+
+ /* Image Card */
+ .hero-image-card img {
+   width: 50%;
+   height: auto;
+   border-radius: 12px;
+ }

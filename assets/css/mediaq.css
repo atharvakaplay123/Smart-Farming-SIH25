@@ -26,9 +26,11 @@
         flex-direction: column;
         align-items: flex-start;
     }
-.crop-card{
-    width:auto;
-}
+
+    .crop-card {
+        width: auto;
+    }
+
     .crop-card img {
         width: 95%;
         /* height: 10%; */
@@ -36,5 +38,13 @@
 
     .crop-cards {
         flex-direction: column;
+    }
+
+    #hero-cards {
+        padding: 0;
+    }
+
+    #hero {
+        padding: 100px 60px;
     }
 }

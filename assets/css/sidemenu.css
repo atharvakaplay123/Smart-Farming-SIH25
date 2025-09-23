@@ -1,11 +1,10 @@
-#side-menu{
+#side-menu {
     /* padding: 10px; */
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
-    /* border-left: 2px solid grey; */
     background-color: white;
     /* width: 90%; */
     width: 0%;
@@ -14,7 +13,8 @@
     transition: all 0.3s ease;
     background-color: #f3fff4;
 }
-#side-menu .account{
+
+#side-menu .account {
     background-color: #2e7d32;
     color: white;
     margin: 10px;
@@ -24,10 +24,12 @@
     align-items: center;
     gap: 8px;
 }
-#side-menu img{
+
+#side-menu img {
     height: 50px;
 }
-#side-menu a{
+
+#side-menu a {
     display: flex;
     margin: 0;
     justify-content: space-between;
@@ -39,15 +41,18 @@
     color: black;
     /* background-color: white; */
 }
-#side-menu a:hover{
+
+#side-menu a:hover {
     background-color: #caface;
     color: #2e7d32;
 }
-#side-menu .side-head{
+
+#side-menu .side-head {
     display: flex;
     justify-content: end;
 }
-#side-menu .cross{
+
+#side-menu .cross {
     background: none;
     padding: 0px 15px;
     padding-top: 10px;
@@ -55,15 +60,18 @@
     color: #2e7d32;
     border: none;
 }
-#side-menu .txt{
+
+#side-menu .txt {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
-#side-menu .location_icon{
+
+#side-menu .location_icon {
     color: #ff4949;
 }
-#side-menu .location{
+
+#side-menu .location {
     display: flex;
     gap: 3px;
     align-items: center;

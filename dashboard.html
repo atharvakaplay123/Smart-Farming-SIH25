@@ -96,66 +96,67 @@
     <div id="sensors" class="kpis" role="list">
       <!-- kpi is displayed through firebase.js -->
     </div>
+
+
+    <!-- recommendation -->
+    <section id="recommendations" class="card">
+      <div class="head">
+        <h3>Crop Recommendations</h3>
+        <div class="controls">
+          <button onclick="feed_data()" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
+          <button onclick="control_cre_cp()" class="btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+      <div class="body">
+        <div id="cre_inputs" class="controls" style="margin-bottom: .8rem">
+          <div style="flex:1; min-width:200px">
+            <label for="N">Nitrogen</label>
+            <input id="N" type="number" step="0.1" placeholder="Nitrogen" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="P">Phosphorus</label>
+            <input id="P" type="number" step="0.1" placeholder="Phosphorus" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="K">Sodium</label>
+            <input id="K" type="number" step="0.1" placeholder="Sodium" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="ph">Soil pH</label>
+            <input id="ph" type="number" step="0.1" placeholder="6.5" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="temp">Temperature</label>
+            <input id="temp" type="number" step="0.1" placeholder="Temperature" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="Hu">Humidity</label>
+            <input id="Hu" type="number" step="0.1" placeholder="Humidity" />
+          </div>
+          <div style="flex:1; min-width:200px">
+            <label for="rain">Rainfall (mm)</label>
+            <input id="rain" type="number" placeholder="120" />
+          </div>
+        </div>
+        <h3>Recommended Crops</h3>
+        <div id="crop-cards" class="crop-cards">
+          <p><button onclick="show_crops()">Click Here to predict crops</button></p>
+          <!-- cards displayed through script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- irrigation -->
+    <section class="card" id="irrigation">
+      <div class="head">
+        <h3>Irrigation Scheduler</h3>
+      </div>
+      <div class="body">
+        <div class="irrigation-card">
+        </div>
+      </div>
+    </section>
   </div>
-
-  <!-- recommendation -->
-  <section id="recommendations" class="card">
-    <div class="head">
-      <h3>Crop Recommendations</h3>
-      <div class="controls">
-        <button onclick="feed_data()" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
-        <button onclick="control_cre_cp()" class="btn"><i class="fa-solid fa-bars"></i></button>
-      </div>
-    </div>
-    <div class="body">
-      <div id="cre_inputs" class="controls" style="margin-bottom: .8rem">
-        <div style="flex:1; min-width:200px">
-          <label for="N">Nitrogen</label>
-          <input id="N" type="number" step="0.1" placeholder="Nitrogen" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="P">Phosphorus</label>
-          <input id="P" type="number" step="0.1" placeholder="Phosphorus" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="K">Sodium</label>
-          <input id="K" type="number" step="0.1" placeholder="Sodium" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="ph">Soil pH</label>
-          <input id="ph" type="number" step="0.1" placeholder="6.5" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="temp">Temperature</label>
-          <input id="temp" type="number" step="0.1" placeholder="Temperature" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="Hu">Humidity</label>
-          <input id="Hu" type="number" step="0.1" placeholder="Humidity" />
-        </div>
-        <div style="flex:1; min-width:200px">
-          <label for="rain">Rainfall (mm)</label>
-          <input id="rain" type="number" placeholder="120" />
-        </div>
-      </div>
-      <h3>Recommended Crops</h3>
-      <div id="crop-cards" class="crop-cards">
-        <p><button onclick="show_crops()">Click Here to predict crops</button></p>
-        <!-- cards displayed through script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- irrigation -->
-  <section class="card" id="irrigation">
-    <div class="head">
-      <h3>Irrigation Scheduler</h3>
-    </div>
-    <div class="irrigation-card">
-
-    </div>
-  </section>
-
   <!-- Chatbot Toggle Button -->
   <div id="chat-toggle"><i class="fa-solid fa-comment"></i></div>
 

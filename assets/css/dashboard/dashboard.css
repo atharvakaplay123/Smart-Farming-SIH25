@@ -41,10 +41,12 @@ body {
   color: #ffffff;
   transform: translateY(-3px);
 }
-.card .controls{
-display: flex;
-gap: 10px;
+
+.card .controls {
+  display: flex;
+  gap: 10px;
 }
+
 /* Refresh button */
 .card .controls .btn {
   color: #2e7d32;
@@ -62,7 +64,7 @@ gap: 10px;
   color: #46bc4c;
 }
 
-/* Table styling */
+/* Table styling
 .card table {
   width: 100%;
   border-collapse: collapse;
@@ -83,7 +85,7 @@ gap: 10px;
 .card table th {
   font-weight: bold;
   color: #333;
-}
+} */
 
 /* Status labels */
 .status {
@@ -137,8 +139,8 @@ gap: 10px;
   background: #ffffff;
   border-radius: 12px;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 1000px;
+  margin: 20px 0;
+  max-width: 1100px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
   overflow-x: auto;
