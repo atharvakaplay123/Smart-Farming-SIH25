@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
+  <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
+  <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
+  <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
+  <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
+  <link rel="stylesheet" href="assets/css/dashboard/cards.css">
+  <link rel="stylesheet" href="assets/css/sidemenu.css">
+  <link rel="stylesheet" href="assets/css/mediaq.css">
+  <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+  <script type="module" src="assets/js/firebase.js"></script>
+</head>
+
+<body>
+  <header id="navbar">
+    <!-- Logo on the left -->
+    <div id="navbar-left">
+      <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
+      <h1>Dashboard</h1>
+    </div>
+
+    <!-- Buttons on the right -->
+    <div id="navbar-right">
+      <a class="nav-btn hide-in-ph">sensor data</a>
+      <a class="nav-btn hide-in-ph">weather</a>
+      <a class="nav-btn hide-in-ph">recommendation</a>
+      <button class="hide-in-ph"><i class="fa-solid fa-plus"></i></button>
+      <button onclick="open_sidebar()" class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+  <section class="show-only-in-ph" id="side-menu">
+    <div class="side-head">
+      <button onclick="close_sidebar()" class="show-only-in-ph cross"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="account">
+      <img src="assets/user.png" alt="">
+      <div class="txt">
+        <p>User</p>
+        <div class="location">
+          <i class="location_icon fa-solid fa-location-dot"></i>
+          <p>Indore</p>
+        </div>
+      </div>
+    </div>
+    <a class="nav-btn">Your Profile<i class="fa-solid fa-user"></i></a>
+    <a class="nav-btn">Add Devices<i class="fa-solid fa-plus"></i></a>
+    <hr>
+    <a onclick="close_sidebar()" class="nav-btn">Sensor Data<i class="fa-solid fa-wifi"></i></a>
+    <a onclick="close_sidebar()" class="nav-btn">Weather<i class="fa-solid fa-cloud"></i></a>
+    <a onclick="close_sidebar()" class="nav-btn">Recommendation<i class="fa-solid fa-check"></i></a>
+    <hr>
+    <a class="nav-btn">Languages<i class="fa-solid fa-language"></i></a>
+    <a class="nav-btn">Devices<i class="fa-solid fa-power-off"></i></a>
+    <a class="nav-btn">Dashboard<i class="fa-solid fa-table-columns"></i></a>
+    <a class="nav-btn">Settings<i class="fa-solid fa-gear"></i></a>
+  </section>
+
+  <div class="body">
+    <div class="hero">
+      <div>
+        <h1>Welcome back! Your fields look <span style="color:var(--good)">healthy</span> today.</h1>
+        <p>Track crop health, automate irrigation, view region-wise weather, and manage inventory — all in one place.
+        </p>
+      </div>
+    </div>
+
+    <!-- weather -->
+    <div id="weather" class="kpis" role="list">
+      <div class="kpi weather-card" role="listitem">
+        <div class="head">
+          <h3>⛅
+            <select id="region">
+              <option>Indore</option>
+              <option>Bhopal</option>
+              <option>Mumbai</option>
+              <option>Bangalore</option>
+            </select>
+          </h3>
+          <button onclick="getWeather()"><i class="fa-solid fa-rotate"></i></button>
+        </div>
+        <div id="weather-data">
+          <!-- data is displayed through weather.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- sensors -->
+    <div id="sensors" class="kpis" role="list">
+      <!-- kpi is displayed through firebase.js -->
+    </div>
+  </div>
+
+  <!-- recommendation -->
+  <section id="recommendations" class="card">
+    <div class="head">
+      <h3>Crop Recommendations</h3>
+      <div class="controls">
+        <button onclick="feed_data()" class="btn"><i class="fa-solid fa-rotate-right"></i></button>
+        <button onclick="control_cre_cp()" class="btn"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+    <div class="body">
+      <div id="cre_inputs" class="controls" style="margin-bottom: .8rem">
+        <div style="flex:1; min-width:200px">
+          <label for="N">Nitrogen</label>
+          <input id="N" type="number" step="0.1" placeholder="Nitrogen" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="P">Phosphorus</label>
+          <input id="P" type="number" step="0.1" placeholder="Phosphorus" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="K">Sodium</label>
+          <input id="K" type="number" step="0.1" placeholder="Sodium" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="ph">Soil pH</label>
+          <input id="ph" type="number" step="0.1" placeholder="6.5" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="temp">Temperature</label>
+          <input id="temp" type="number" step="0.1" placeholder="Temperature" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="Hu">Humidity</label>
+          <input id="Hu" type="number" step="0.1" placeholder="Humidity" />
+        </div>
+        <div style="flex:1; min-width:200px">
+          <label for="rain">Rainfall (mm)</label>
+          <input id="rain" type="number" placeholder="120" />
+        </div>
+      </div>
+      <h3>Recommended Crops</h3>
+      <div id="crop-cards" class="crop-cards">
+        <p><button onclick="show_crops()">Click Here to predict crops</button></p>
+        <!-- cards displayed through script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- irrigation -->
+  <section class="card" id="irrigation">
+    <div class="head">
+      <h3>Irrigation Scheduler</h3>
+    </div>
+    <div class="irrigation-card">
+
+    </div>
+  </section>
+
+  <!-- Chatbot Toggle Button -->
+  <div id="chat-toggle"><i class="fa-solid fa-comment"></i></div>
+
+  <!-- Chatbot Box -->
+  <div id="chatbox">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span id="chat-close"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+
+    <div class="chat-body">
+      <div class="msg bot">Hello 👋 How can I help you?</div>
+    </div>
+
+    <div class="chat-footer">
+      <input type="text" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+  <script src="assets/js/weather.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
