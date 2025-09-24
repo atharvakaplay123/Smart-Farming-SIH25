@@ -152,32 +152,48 @@ function control_cre_cp() {
   }
 }
 function feed_data() {
-  sensor_data.humidity = Number(document.getElementById("Hu").value)
-  sensor_data.temperature = Number(document.getElementById("temp").value)
   sensor_data.N = Number(document.getElementById("N").value)
   sensor_data.P = Number(document.getElementById("P").value)
   sensor_data.K = Number(document.getElementById("K").value)
-  sensor_data.rain = Number(document.getElementById("rain").value)
-  sensor_data.pH = Number(document.getElementById("ph").value)
-  sensor_data.soil_moisture = Number(document.getElementById("ph").value)
+  sensor_data.temperature = Number(document.getElementById("temp").value)
+  sensor_data.humidity = Number(document.getElementById("Hu").value)
+  sensor_data.ph = Number(document.getElementById("ph").value)
+  sensor_data.rainfall = Number(document.getElementById("rain").value)
+  // sensor_data.soil_moisture = Number(document.getElementById("ph").value)
   console.log(sensor_data)
 }
-setTimeout(()=>{
+setTimeout(() => {
   feed_data()
 }, 3000)
-function show_crops(){
+
+//ml model
+async function show_crops() {
+  feed_data()
+  const data = await fetch("https://web-production-37278.up.railway.app/predict", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(sensor_data)
+  });
+  const ml_response = await data.json()
+  // return ml_response;
   document.getElementById("crop-cards").innerHTML = `
   <div id="crop-card" class="crop-card">
-          <h3>apple</h3>
-          <img src="assets/crops/apple.jpg" alt="apple">
+          <h3>${Object.keys(ml_response)[0]}</h3>
+          <img src="assets/crops/${Object.keys(ml_response)[0]}.jpg" alt="${Object.keys(ml_response)[0]}">
+          <p>${Number(Object.values(ml_response)[0]*100).toFixed(2)}%</p>
         </div>
         <div class="crop-card">
-          <h3>banana</h3>
-          <img src="assets/crops/banana.jpg" alt="apple">
+          <h3>${Object.keys(ml_response)[1]}</h3>
+          <img src="assets/crops/${Object.keys(ml_response)[1]}.jpg" alt="${Object.keys(ml_response)[1]}">
+          <p>${Number(Object.values(ml_response)[1]*100).toFixed(2)}%</p>
         </div>
         <div class="crop-card">
-          <h3>coconut</h3>
-          <img src="assets/crops/coconut.jpg" alt="apple">
+          <h3>${Object.keys(ml_response)[2]}</h3>
+          <img src="assets/crops/${Object.keys(ml_response)[2]}.jpg" alt="${Object.keys(ml_response)[2]}">
+          <p>${Number(Object.values(ml_response)[2]*100).toFixed(2)}%</p>
         </div>
   `
+// console.log(get_crops())
 }
