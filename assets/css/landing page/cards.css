@@ -34,13 +34,10 @@ a {
   padding: 30px;
 }
 
-/* .home-card .txt h2 {
-  display: inline;
-  margin: auto;
-
-} */
 .home-card img {
+  object-fit: cover;
   height: 100%;
+  width: 60%;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 
@@ -54,7 +51,7 @@ a {
 
   .home-card {
     flex-direction: column;
-    
+    height: auto;
 
   }
 

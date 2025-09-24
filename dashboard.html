@@ -4,11 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Kissan Dashboard | KrishiSetu</title>
   <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
-  <link rel="stylesheet" href="assets/css/dashboard/weather_box.css">
   <link rel="stylesheet" href="assets/css/dashboard/control_section.css">
   <link rel="stylesheet" href="assets/css/dashboard/dashboard_header.css">
   <link rel="stylesheet" href="assets/css/dashboard/hero_kpi.css">
@@ -150,10 +149,46 @@
     <section class="card" id="irrigation">
       <div class="head">
         <h3>Irrigation Scheduler</h3>
+        <div class="controls">
+          <button class="btn"><i class="fa-solid fa-plus"></i></button>
+        </div>
       </div>
       <div class="body">
-        <div class="irrigation-card">
-          
+        <div class="card irrigation-card">
+          <div class="head">
+            <h3>Tomorrow 6AM</h3>
+            <div class="controls">
+              <button class="btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="body">
+            <p>Duration: 2hrs | Water: 500L</p>
+            <div class="status bad">Pending</div>
+          </div>
+        </div>
+        <div class="card irrigation-card">
+          <div class="head">
+            <h3>Today 6AM</h3>
+            <div class="controls">
+              <button class="btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="body">
+            <p>Duration: 2hrs | Water: 500L</p>
+            <div class="status good">Done</div>
+          </div>
+        </div>
+        <div class="card irrigation-card">
+          <div class="head">
+            <h3>Today 11AM</h3>
+            <div class="controls">
+              <button class="btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="body">
+            <p>Duration: 2hrs | Water: 500L</p>
+            <div class="status warn">Ongoing</div>
+          </div>
         </div>
       </div>
     </section>

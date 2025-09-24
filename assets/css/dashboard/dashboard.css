@@ -64,29 +64,6 @@ body {
   color: #46bc4c;
 }
 
-/* Table styling
-.card table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.card table thead {
-  background: #f1f8f4;
-}
-
-.card table th,
-.card table td {
-  padding: 10px 12px;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.card table th {
-  font-weight: bold;
-  color: #333;
-} */
-
 /* Status labels */
 .status {
   padding: 4px 8px;
