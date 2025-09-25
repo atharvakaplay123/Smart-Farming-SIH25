@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'poppins', Arial;
 }
 
 body {
@@ -63,9 +63,14 @@ body {
 .card .controls .btn:hover {
   color: #46bc4c;
 }
-
+.body .icons{
+  padding: 5px 0px;
+  display: flex;
+  gap: 8px;
+}
 /* Status labels */
 .status {
+  width: fit-content;
   padding: 4px 8px;
   border-radius: 6px;
   font-weight: bold;

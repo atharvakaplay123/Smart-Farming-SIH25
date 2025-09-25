@@ -7,16 +7,19 @@ const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-
 const sectionMap = {
   "sensor data": "sensors",
   "weather": "weather",
-  "recommendation": "recommendations"
+  "recommendation": "recommendations",
+  "irrigation": "irrigation"
 };
 
 function open_sidebar() {
   document.getElementById("side-menu").style.width = "90%";
+  document.getElementById("side-menu-cross").style.visibility = "visible";
 }
 function close_sidebar() {
   document.getElementById("side-menu").style.width = "0%";
+  document.getElementById("side-menu-cross").style.visibility = "hidden";
 }
-
+close_sidebar()
 document.querySelectorAll(".nav-btn").forEach(anchor => {
   anchor.style.cursor = "pointer";
   anchor.addEventListener("click", () => {

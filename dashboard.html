@@ -4,7 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kissan Dashboard | KrishiSetu</title>
+  <title>Kissan Dashboard | AgriMitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/css/dashboard/dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/dashboard/chatbox.css">
@@ -23,21 +28,25 @@
     <!-- Logo on the left -->
     <div id="navbar-left">
       <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
-      <h1>Dashboard</h1>
+      <h1>AgriMitra</h1>
     </div>
 
     <!-- Buttons on the right -->
     <div id="navbar-right">
-      <a class="nav-btn hide-in-ph">sensor data</a>
-      <a class="nav-btn hide-in-ph">weather</a>
-      <a class="nav-btn hide-in-ph">recommendation</a>
+      <a class="nav-btn hide-in-ph">Sensor Data</a>
+      <a class="nav-btn hide-in-ph">Weather</a>
+      <a class="nav-btn hide-in-ph">Recommendation</a>
+      <a class="nav-btn hide-in-ph">Irrigation</a>
+      <a class="nav-btn hide-in-ph"><i class="fa-solid fa-bell"></i></a>
       <button class="hide-in-ph"><i class="fa-solid fa-plus"></i></button>
+      <!-- <button class="nav-btn show-only-in-ph"><i class="fa-solid fa-bell"></i></button> -->
       <button onclick="open_sidebar()" class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
   <section class="show-only-in-ph" id="side-menu">
     <div class="side-head">
-      <button onclick="close_sidebar()" class="show-only-in-ph cross"><i class="fa-solid fa-xmark"></i></button>
+      <button id="side-menu-cross" onclick="close_sidebar()" class="show-only-in-ph cross"><i
+          class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="account">
       <img src="assets/user.png" alt="">
@@ -55,8 +64,10 @@
     <a onclick="close_sidebar()" class="nav-btn">Sensor Data<i class="fa-solid fa-wifi"></i></a>
     <a onclick="close_sidebar()" class="nav-btn">Weather<i class="fa-solid fa-cloud"></i></a>
     <a onclick="close_sidebar()" class="nav-btn">Recommendation<i class="fa-solid fa-check"></i></a>
+    <a onclick="close_sidebar()" class="nav-btn">Irrigation<i class="fa-solid fa-droplet"></i></a>
     <hr>
     <a class="nav-btn">Languages<i class="fa-solid fa-language"></i></a>
+    <a class="nav-btn">Notifications<i class="fa-solid fa-bell"></i></a>
     <a class="nav-btn">Devices<i class="fa-solid fa-power-off"></i></a>
     <a class="nav-btn">Dashboard<i class="fa-solid fa-table-columns"></i></a>
     <a class="nav-btn">Settings<i class="fa-solid fa-gear"></i></a>
@@ -78,9 +89,11 @@
           <h3>⛅
             <select id="region">
               <option>Indore</option>
-              <option>Bhopal</option>
-              <option>Mumbai</option>
-              <option>Bangalore</option>
+              <option>Bhubaneswar</option>
+              <option>Puri</option>
+              <option>Konark</option>
+              <option>Rourkela</option>
+              <option>Paradeep</option>
             </select>
           </h3>
           <button onclick="getWeather()"><i class="fa-solid fa-rotate"></i></button>
@@ -162,32 +175,12 @@
             </div>
           </div>
           <div class="body">
-            <p>Duration: 2hrs | Water: 500L</p>
-            <div class="status bad">Pending</div>
-          </div>
-        </div>
-        <div class="card irrigation-card">
-          <div class="head">
-            <h3>Today 6AM</h3>
-            <div class="controls">
-              <button class="btn"><i class="fa-solid fa-trash"></i></button>
+            <p>Duration: 2hrs</p>
+            <p>Water: 500L</p>
+            <div class="icons">
+              <div class="status bad">Pending</div>
+              <div class="status good"><i class="fa-solid fa-bell"></i></div>
             </div>
-          </div>
-          <div class="body">
-            <p>Duration: 2hrs | Water: 500L</p>
-            <div class="status good">Done</div>
-          </div>
-        </div>
-        <div class="card irrigation-card">
-          <div class="head">
-            <h3>Today 11AM</h3>
-            <div class="controls">
-              <button class="btn"><i class="fa-solid fa-trash"></i></button>
-            </div>
-          </div>
-          <div class="body">
-            <p>Duration: 2hrs | Water: 500L</p>
-            <div class="status warn">Ongoing</div>
           </div>
         </div>
       </div>

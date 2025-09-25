@@ -26,8 +26,9 @@
   border-radius: 10%;
 }
 
-#navbar-right a {
+#navbar-right a,button {
   background: #ffcc00;
+  /* color: #2e7d32; */
   border: none;
   padding: 10px 20px;
   margin-left: 10px;
@@ -39,4 +40,15 @@
 
 #navbar-right a:hover {
   background: #e6b800;
+}
+
+#navbar-left{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#navbar-left h3{
+  color: white;
+  font-size: 30px;
+  font-weight: 400;
 }

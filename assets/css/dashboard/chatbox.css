@@ -62,6 +62,7 @@ html {
 
 /* Toggle button (chat icon) */
 #chat-toggle {
+  display: flex;
   position: fixed;
   bottom: 20px;
   right: 20px;

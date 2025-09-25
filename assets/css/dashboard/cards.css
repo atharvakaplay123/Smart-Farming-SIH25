@@ -53,6 +53,7 @@
 
 .weather-card select {
     border: none;
+    outline: none;
 }
 
 .weather-card select:active {
@@ -69,13 +70,8 @@
     padding: 20px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.circle-card:hover {
-    transform: translateY(-8px);
 }
 
 .circle-card h3 {
@@ -147,10 +143,12 @@
     font-family: Arial, sans-serif;
     overflow-x: auto;
 }
-.crop-cards{
+
+.crop-cards {
     display: flex;
 }
-.crop-cards button{
+
+.crop-cards button {
     /* margin: auto; */
     margin-top: 10px;
     width: 100%;
@@ -162,10 +160,12 @@
     border-radius: 10px;
     transition: all 0.3s ease;
 }
-.crop-cards button:hover{
+
+.crop-cards button:hover {
     background-color: rgb(23, 255, 112);
 
 }
+
 .crop-card img {
     width: 200px;
     /* height: 10%; */

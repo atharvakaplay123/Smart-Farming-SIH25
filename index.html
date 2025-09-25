@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home | AgriMitra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" href="assets/icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/sidemenu.css">
     <link rel="stylesheet" href="assets/css/landing page/navbar.css">
     <link rel="stylesheet" href="assets/css/landing page/hero.css">
     <link rel="stylesheet" href="assets/css/landing page/cards.css">
@@ -19,13 +26,24 @@
         <!-- Logo on the left -->
         <div id="navbar-left">
             <img src="assets/logo image.jpg" alt="Farming Logo" class="logo-img">
+            <h3>AgriMitra</h3>
         </div>
         <!-- Buttons on the right -->
         <div id="navbar-right">
-            <a href="login.html">login</a>
-            <a href="signup.html">Sign Up</a>
+            <a class="hide-in-ph" href="login.html">login</a>
+            <a class="hide-in-ph" href="signup.html">Sign Up</a>
+            <button class="show-only-in-ph" onclick="open_sidebar()" class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
         </div>
     </div>
+    <section class="show-only-in-ph" id="side-menu">
+    <div class="side-head">
+      <button id="side-menu-cross" onclick="close_sidebar()" class="cross show-only-in-ph"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <a href="login.html" class="nav-btn">Login<i class="fa-solid fa-user"></i></a>
+    <a href="signup.html" class="nav-btn">Register<i class="fa-solid fa-plus"></i></a>
+    <hr>
+    <a class="nav-btn">Languages<i class="fa-solid fa-language"></i></a>
+  </section>
     <div id="hero">
         <h3>Connected fields, smarter yields.</h3>
     </div>
@@ -103,6 +121,7 @@
             <p class="rights">Copyright © 2025 ByteCraft</p>
         </section>
     </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

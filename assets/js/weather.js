@@ -35,3 +35,4 @@ async function getWeather() {
   }
 }
 getWeather()
+document.getElementById("region").addEventListener("change",getWeather)
