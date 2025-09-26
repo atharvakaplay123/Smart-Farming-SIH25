@@ -1,4 +1,5 @@
 let sensor_data = {}
+let chatHistory = [];
 
 const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
@@ -91,16 +92,8 @@ chatInput.addEventListener("keypress", (e) => {
 // weather condition=${weather_obj.condition}
 // `
 // console.log(context)
-
-async function sendMessage() {
-  const input = chatInput.value.trim();
-  if (!input) return;
-
-  // Display user message
-  addMessage("user", input); // user message
-  chatInput.value = "";
-  const prompt = `
-  You are an agricultural advisory assistant developed by team ByteCraft. You will always analyze the given sensor data before answering. The data includes soil nutrients (N, P, K in %), soil pH, rainfall (mm), humidity (%), and temperature (°C).
+const systemPrompt = `
+You are an agricultural advisory assistant developed by team ByteCraft. You will always analyze the given sensor data before answering The data includes soil nutrients (N, P, K in %), soil pH, rainfall (mm), humidity (%), and temperature (°C).
 
 Use this data as the primary reference to give personalized insights, recommendations, and explanations about crop health, fertilizer requirements, irrigation, disease risk, and suitable crops.
 
@@ -115,7 +108,38 @@ Provide recommendations (e.g., which fertilizer to use, water requirements, suit
 Keep responses clear, professional, and practical for farmers.
 
 If the data is insufficient for a definite recommendation, politely state the limitation and suggest additional information.
-  ` + JSON.stringify(sensor_data) + `\nDO NOT REFER ABOVE CONTENT UNTIL ASKED` + input
+`
+function buildPrompt(userMessage) {
+  // Add message to history
+  chatHistory.push({ role: "user", content: userMessage });
+
+  // Simple keyword check (you can improve this later)
+  const keywords = ["crop", "soil", "N", "P", "K", "ph", "humidity", "temperature"];
+  const lowerMsg = userMessage.toLowerCase();
+  const relevant = keywords.some(k => lowerMsg.includes(k));
+
+  // Build conversation string
+  let prompt = systemPrompt + "\n\n";
+  chatHistory.forEach(msg => {
+    prompt += (msg.role === "user" ? "User: " : "Bot: ") + msg.content + "\n";
+  });
+
+  // Append reference data only if relevant
+  if (relevant) {
+    prompt += "\n[Reference Data]\n" + JSON.stringify(sensor_data) + "\n";
+  }
+
+  prompt += "Bot:";
+  return prompt;
+}
+async function sendMessage() {
+  const input = chatInput.value.trim();
+  if (!input) return;
+
+  // Display user message
+  addMessage("user", input); // user message
+  chatInput.value = "";
+  // const prompt = JSON.stringify(sensor_data) + `\nDO NOT REFER ABOVE CONTENT UNTIL ASKED` + input
   // Send to Gemini
   // console.log(sensor_data)
   console.log(prompt)
@@ -124,7 +148,7 @@ If the data is insufficient for a definite recommendation, politely state the li
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       contents: [
-        { parts: [{ text: prompt }] }
+        { parts: [{ text: buildPrompt(input) }] }
       ]
     })
   });
