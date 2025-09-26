@@ -12,12 +12,6 @@ header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media only screen and (max-width: 768px) {
-  header {
-    padding: 12px 8px;
-  }
-}
-
 #lang-menu {
   display: flex;
   position: absolute;
@@ -74,4 +68,26 @@ header {
 
 #navbar-right button:hover {
   background: #e8f5e9;
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 12px 8px;
+  }
+
+  #navbar-left {
+    gap: 5px;
+  }
+
+  .logo-img {
+    box-sizing: border-box;
+    max-width: 10vw;
+    height: auto;
+  }
+
+  .logo-txt {
+    box-sizing: border-box;
+    max-width: 40vw;
+    height: auto;
+  }
 }
