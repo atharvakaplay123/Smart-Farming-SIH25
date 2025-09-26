@@ -60,7 +60,7 @@ const chatSend = document.querySelector("#chatbox .chat-footer button");
 function addMessage(sender, text) {
   const msg = document.createElement("div");
   msg.classList.add("msg", sender);
-  msg.textContent = text;
+  msg.innerHTML = text;
   chatBody.appendChild(msg);
   chatBody.scrollTop = chatBody.scrollHeight; // auto-scroll
 }
@@ -115,7 +115,7 @@ Provide recommendations (e.g., which fertilizer to use, water requirements, suit
 Keep responses clear, professional, and practical for farmers.
 
 If the data is insufficient for a definite recommendation, politely state the limitation and suggest additional information.
-  ` + JSON.stringify(sensor_data) + input
+  ` + JSON.stringify(sensor_data) + `\nDO NOT REFER ABOVE CONTENT UNTIL ASKED` + input
   // Send to Gemini
   // console.log(sensor_data)
   console.log(prompt)
@@ -132,11 +132,22 @@ If the data is insufficient for a definite recommendation, politely state the li
   const botReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Error: No response";
 
   // Display bot reply
-  addMessage("bot", botReply)
+
+  addMessage("bot", parseMarkdown(botReply))
   // chatbox.innerHTML += `<div class="bot"><b>Bot:</b> ${botReply}</div>`;
   // chatbox.scrollTop = chatbox.scrollHeight;
 }
-
+function parseMarkdown(text) {
+  // Bold: **text**
+  text = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+  // Italic: *text*
+  text = text.replace(/\*(.*?)\*/g, "<i>$1</i>");
+  // Inline code: `code`
+  text = text.replace(/`(.*?)`/g, "<code>$1</code>");
+  // Line breaks for newlines
+  text = text.replace(/\n/g, "<br>");
+  return text;
+}
 function hide_cre_controls() {
   document.getElementById("cre_inputs").style.display = "none"
 }
@@ -185,18 +196,18 @@ async function show_crops() {
   <div id="crop-card" class="crop-card">
           <h3>${Object.keys(ml_response)[0]}</h3>
           <img src="assets/crops/${Object.keys(ml_response)[0]}.jpg" alt="${Object.keys(ml_response)[0]}">
-          <p>${Number(Object.values(ml_response)[0]*100).toFixed(2)}%</p>
+          <p>${Number(Object.values(ml_response)[0] * 100).toFixed(2)}%</p>
         </div>
         <div class="crop-card">
           <h3>${Object.keys(ml_response)[1]}</h3>
           <img src="assets/crops/${Object.keys(ml_response)[1]}.jpg" alt="${Object.keys(ml_response)[1]}">
-          <p>${Number(Object.values(ml_response)[1]*100).toFixed(2)}%</p>
+          <p>${Number(Object.values(ml_response)[1] * 100).toFixed(2)}%</p>
         </div>
         <div class="crop-card">
           <h3>${Object.keys(ml_response)[2]}</h3>
           <img src="assets/crops/${Object.keys(ml_response)[2]}.jpg" alt="${Object.keys(ml_response)[2]}">
-          <p>${Number(Object.values(ml_response)[2]*100).toFixed(2)}%</p>
+          <p>${Number(Object.values(ml_response)[2] * 100).toFixed(2)}%</p>
         </div>
   `
-// console.log(get_crops())
+  // console.log(get_crops())
 }
