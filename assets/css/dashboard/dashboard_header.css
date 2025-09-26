@@ -12,7 +12,13 @@ header {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-#lang-menu{
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 12px 8px;
+  }
+}
+
+#lang-menu {
   display: flex;
   position: absolute;
   top: 70px;

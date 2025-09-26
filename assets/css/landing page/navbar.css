@@ -20,13 +20,20 @@
 
 }
 
+@media only screen and (max-width: 768px) {
+  #navbar {
+    padding: 15px 8px;
+  }
+}
+
 .logo-img {
   height: 50px;
   width: auto;
   border-radius: 10%;
 }
 
-#navbar-right a,button {
+#navbar-right a,
+button {
   background: #ffcc00;
   /* color: #2e7d32; */
   border: none;
@@ -42,12 +49,13 @@
   background: #e6b800;
 }
 
-#navbar-left{
+#navbar-left {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#navbar-left h3{
+
+#navbar-left h3 {
   color: white;
   font-size: 30px;
   font-weight: 400;
