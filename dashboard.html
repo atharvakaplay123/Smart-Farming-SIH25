@@ -38,8 +38,14 @@
       <a class="nav-btn hide-in-ph">Recommendation</a>
       <a class="nav-btn hide-in-ph">Irrigation</a>
       <a class="nav-btn hide-in-ph"><i class="fa-solid fa-bell"></i></a>
-      <button class="hide-in-ph"><i class="fa-solid fa-plus"></i></button>
+      <div id="lang-menu">
+        <button onclick="translatePage('en')">English</button>
+        <button onclick="translatePage('hi')">Hindi</button>
+        <button onclick="translatePage('or')">Odia</button>
+      </div>
+      <button onclick="lang_menu()"><i class="fa-solid fa-language"></i></button>
       <!-- <button class="nav-btn show-only-in-ph"><i class="fa-solid fa-bell"></i></button> -->
+      <button class="hide-in-ph"><i class="fa-solid fa-plus"></i></button>
       <button onclick="open_sidebar()" class="nav-btn show-only-in-ph"><i class="fa-solid fa-bars"></i></button>
     </div>
   </header>
@@ -205,6 +211,7 @@
       <button onclick="sendMessage()">Send</button>
     </div>
   </div>
+  <script src="assets/js/translate.js"></script>
   <script src="assets/js/weather.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
