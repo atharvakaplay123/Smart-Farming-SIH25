@@ -1,7 +1,8 @@
 let sensor_data = {}
 let chatHistory = [];
 
-const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
+// const API_KEY = "AIzaSyAcasDyt0oP2NmFjW3HAMFoDruzsZu3_AU";  // ⚠️ Don't expose directly in production
+const API_KEY = "AIzaSyCuLZSJV7ZzCc_NAuaknxJfnyAOkWC6Kbw";  // ⚠️ Don't expose directly in production
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
 
 // Map <a> text → section id
