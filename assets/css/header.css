@@ -1,0 +1,35 @@
+/* Shared header styles used across pages */
+
+/* Base navbar container (works for both <header id="navbar"> and <div id="navbar">) */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Left section grouping for logo/text */
+#navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo image defaults (page overrides may refine size/radius) */
+.logo-img {
+  height: 45px;
+  width: auto;
+  border-radius: 6px;
+}
+
+@media only screen and (max-width: 768px) {
+  #navbar {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+
