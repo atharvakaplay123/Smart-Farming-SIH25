@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://krishimarg.up.railway.app/",
+      "permanent": true
+    }
+  ]
+}
